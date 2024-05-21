@@ -1,10 +1,8 @@
-version: "3"
-
 services:
   next-app:
     build:
-      context: .
+      context: ../../test/frontend-little-lewis
       dockerfile: Dockerfile.prod
-    restart: always
+    restart: on-failure
     ports:
       - 3000:3000

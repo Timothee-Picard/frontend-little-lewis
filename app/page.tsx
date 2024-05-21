@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 
-export default function Home() {
+export default function HomePage() {
     return (
         <>
             <section className="relative flex justify-center items-center h-screen overflow-clip">

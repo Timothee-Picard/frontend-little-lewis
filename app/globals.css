@@ -1,4 +1,5 @@
 @import url('https://fonts.cdnfonts.com/css/built-titling');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -7,26 +8,50 @@
   --background-color: #f7f7f7;
     --text-color: #333;
 }
-
+/*
 @media (prefers-color-scheme: dark) {
   :root {
     --background-color: #333;
-    --text-color: #fff;
+    --text-color: red;
   }
 }
+*/
 
 body {
     background-color: var(--background-color);
     color: var(--text-color);
 }
+
 @layer base {
     html {
-        font-family: 'Built Titling', sans-serif;
+        font-family: "Montserrat", sans-serif;
     }
 }
 
 @layer utilities {
-  .text-balance {
-    /*text-wrap: balance;*/
-  }
+    .text-balance {
+        /*text-wrap: balance;*/
+    }
+
+    .text-shadow-title {
+        text-shadow: 13px 9px 0 #361B8B;
+    }
+
+    .text-stroke {
+        position: relative;
+    }
+
+    .text-stroke::before {
+        content: attr(data-text);
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        -webkit-text-stroke: 20px #361B8B;
+        text-stroke: 10px #361B8B;
+    }
+
+    .activeFilter {
+        @apply text-white bg-customPurple;
+    }
 }
