@@ -17,9 +17,15 @@
 }
 */
 
-body {
+html {
     background-color: var(--background-color);
     color: var(--text-color);
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+html::-webkit-scrollbar {
+    display: none;
 }
 
 @layer base {
@@ -35,10 +41,6 @@ body {
 
     .text-shadow-title {
         text-shadow: 13px 9px 0 #361B8B;
-    }
-
-    .text-stroke {
-        position: relative;
     }
 
     .text-stroke::before {
