@@ -56,6 +56,7 @@ export default function HomePage() {
 					className="video w-screen h-screen object-cover mx-auto sticky top-0"
 					autoPlay
 					loop
+					muted
 					src="https://dl.dropboxusercontent.com/scl/fi/ddq50kwy5zxk1i0lqet21/intro-site.MP4?rlkey=pzw3hv1qwdxfhowh3elt41vh9&st=zc155fds&dl=0"
 				/>
 				<Image src={require("@/public/stageHome.png")}
