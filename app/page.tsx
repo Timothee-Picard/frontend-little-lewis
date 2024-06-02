@@ -19,8 +19,9 @@ export default function HomePage() {
                 end: 50,
                 scrub: true,
 				onUpdate: ({progress, direction, isActive}) => {
-					if (!isActive) return;
-					gsap.to(".separator", { top: `${-progress * 30}vh` });
+					gsap.to(".separator", { top: `${
+						isActive || progress == 1 ? -progress * 30 : 0
+						}vh` });
 				}
             },
         });
