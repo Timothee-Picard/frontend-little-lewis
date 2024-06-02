@@ -19,7 +19,6 @@ export default function HomePage() {
 				start: "top top",
 				end: 200,
 				scrub: true,
-				markers: true,
 			},
 		});
 
@@ -30,7 +29,6 @@ export default function HomePage() {
 				start: "+=600px top",
 				end: "top+=800px top",
 				scrub: true,
-				markers: true,
 			},
 		});
 
@@ -41,7 +39,6 @@ export default function HomePage() {
 				start: "top+=800px top",
 				end: "top+=800px top",
 				scrub: true,
-				markers: true,
 			},
 		});
 
