@@ -5,7 +5,7 @@
 @tailwind utilities;
 
 :root {
-  --background-color: #f7f7f7;
+    --background-color: #f7f7f7;
     --text-color: #333;
 }
 /*
@@ -17,16 +17,16 @@
 }
 */
 
-/*html {
+html {
     background-color: var(--background-color);
     color: var(--text-color);
-    -ms-overflow-style: none;  !* IE and Edge *!
-    scrollbar-width: none;  !* Firefox *!
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
 html::-webkit-scrollbar {
     display: none;
-}*/
+}
 
 @layer base {
     html {
