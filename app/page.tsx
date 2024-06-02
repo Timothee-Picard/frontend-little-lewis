@@ -11,12 +11,12 @@ export default function HomePage() {
     useEffect(() => {
         gsap.to(".video", {
             width: "90vw",
-			marginTop: "30vh",
+			marginTop: "60vh",
             borderRadius: "1.5rem",
             scrollTrigger: {
                 trigger: ".video",
                 start: "top top",
-                end: 50,
+                end: 1,
                 scrub: true,
 				onUpdate: ({progress, direction, isActive}) => {
 					gsap.to(".separator", { top: `${
