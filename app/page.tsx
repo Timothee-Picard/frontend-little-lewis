@@ -9,36 +9,58 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function HomePage() {
     useEffect(() => {
-        gsap.to(".video", {
-            width: "90vw",
-			marginTop: "60vh",
-            borderRadius: "1.5rem",
-            scrollTrigger: {
-                trigger: ".video",
-                start: "top top",
-                end: 1,
-                scrub: true,
-				onUpdate: ({progress, direction, isActive}) => {
-					gsap.to(".separator", { top: `${
-						isActive || progress == 1 ? -progress * 30 : 0
-						}vh` });
-				}
-            },
-        });
+		gsap.to(".video", {
+			width: "90vw",
+			height: "90vh",
+			top: "5vh",
+			borderRadius: "1.5rem",
+			scrollTrigger: {
+				trigger: ".test",
+				start: "top top",
+				end: 200,
+				scrub: true,
+				markers: true,
+			},
+		});
+
+		gsap.to(".separator", {
+			top: "-30vh",
+			scrollTrigger: {
+				trigger: ".test",
+				start: "+=600px top",
+				end: "top+=800px top",
+				scrub: true,
+				markers: true,
+			},
+		});
+
+		gsap.to(".backgroundanim", {
+			position: "sticky",
+			scrollTrigger: {
+				trigger: ".test",
+				start: "top+=800px top",
+				end: "top+=800px top",
+				scrub: true,
+				markers: true,
+			},
+		});
+
     }, []);
     return (
 		<>
-			<section className="relative flex justify-center items-center h-screen overflow-clip">
+			<section className="test relative"
+			style={{
+				height: "calc(100vh + 1000px)"
+			}}>
 				<video
-					className="video inset-0 w-screen h-screen object-cover mx-auto my-20"
+					className="video w-screen h-screen object-cover mx-auto sticky top-0"
 					autoPlay
 					loop
-					muted
 					src="https://dl.dropboxusercontent.com/scl/fi/ddq50kwy5zxk1i0lqet21/intro-site.MP4?rlkey=pzw3hv1qwdxfhowh3elt41vh9&st=zc155fds&dl=0"
 				/>
 				<Image src={require("@/public/stageHome.png")}
 					   alt={"aaa"}
-					   className="absolute top-0 w-screen h-screen z-[-1]"/>
+					   className="backgroundanim fixed top-0 w-screen h-screen z-[-1]"/>
 			</section>
 			<svg width="1920" height="1654"
 				 className="separator relative z-10 top-0"
