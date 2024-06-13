@@ -60,6 +60,9 @@ export default function HomePage() {
 
 		const mainNavigation = document.querySelector('.mainNavigation')
 		if(mainNavigation instanceof HTMLElement) mainNavigation.style.bottom = '-10rem';
+
+		const video = document.querySelector('.videoAnim');
+		video?.play();
     }, []);
     return (
 		<>
