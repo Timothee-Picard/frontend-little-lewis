@@ -3,7 +3,7 @@ import {useState} from "react";
 
 export default function DesktopNavigation() {
     return (
-        <nav className="z-40 h-24 w-[700px] fixed bottom-8 translate-x-1/2 right-1/2 border-5 border-[#1F2222] rounded-[101px] shadow-[4px_4px_0_0_#1F2222] bg-white">
+        <nav className="mainNavigation duration-1000 z-40 h-24 w-[700px] fixed bottom-8 translate-x-1/2 right-1/2 border-5 border-[#1F2222] rounded-[101px] shadow-[4px_4px_0_0_#1F2222] bg-white">
             <ul className={`h-full w-full flex items-center justify-evenly gap-7 uppercase italic text-xl font-black`}>
                 <li>
                     <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 16 16">
