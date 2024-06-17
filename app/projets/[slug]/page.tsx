@@ -4,6 +4,7 @@ import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import {useGSAP} from "@gsap/react";
 import Image from "next/image";
+import {useEffect} from "react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -36,6 +37,15 @@ export default function ProjetPage() {
 			});
 		})
 	}, [])
+
+	useEffect(() => {
+		// cancel scroll X
+		document.addEventListener('scroll', (e) => {
+			if (window.scrollX !== 0) {
+				window.scrollTo(0, window.scrollY)
+			}
+		})
+	}, []);
 
 	return (
 		<>
@@ -169,7 +179,7 @@ export default function ProjetPage() {
 			</div>
 
 			<div className="flex flex-col overflow-y-auto w-full overflow-hidden">
-				<div className="mx-auto">
+				<div className="mx-auto w-full">
 					<Image src={"https://picsum.photos/2000/3000"} width={200} height={300} alt={"aa"}/>
 					<Image src={"https://picsum.photos/2000/3000"} width={200} height={300} alt={"aa"}/>
 					<Image src={"https://picsum.photos/2000/3000"} width={200} height={300} alt={"aa"}/>
