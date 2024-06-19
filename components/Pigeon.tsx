@@ -9,7 +9,7 @@ type PigeonProps = {
 
 export default function Pigeon(Props: PigeonProps) {
 	  const { className, color = "#D88DFF" } = Props
-	const [position, setPosition] = useState({ x: 0, y: 0 });
+	const [position, setPosition] = useState({ x: -20, y: -30 });
 
 	const handleMouseMove = (e: React.MouseEvent<SVGSVGElement, MouseEvent>) => {
 		const svg = e.currentTarget;
