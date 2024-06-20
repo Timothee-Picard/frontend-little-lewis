@@ -1,6 +1,12 @@
 import Image from "next/image";
 import LoopBanner from "@/components/LoopBanner";
 import Pigeon from "@/components/Pigeon";
+import type {Metadata} from "next";
+
+export const metadata: Metadata = {
+	title: "Little Lewis - About",
+	description: "Who is Little Lewis? Find out more about the brand and the people behind it.",
+};
 
 export default function AboutPage() {
 	return (
@@ -54,11 +60,34 @@ export default function AboutPage() {
 				</defs>
 			</svg>
 
-			<div className="relative h-screen bg-white -mt-[28vw]">
-				aa
+			<div className="relative bg-white py-48 -mt-[28vw] flex flex-col gap-20">
+				<p className="whitespace-pre-line w-[600px] mx-auto">
+					<b className="font-bold">Hi</b>
+					{`, I'm Gennaro Lewis Grassi also known as `}
+					<b className="font-bold">{`lil' lewis`}</b>.
+				</p>
+				<p className="whitespace-pre-line w-[600px] mx-auto">
+					{`I'm a brand designer and multidisciplinary artist.\nI'm half danish / half italian and I grew up in Paris, France and I live with Pablo, the bird you can see in my drawings.`}
+				</p>
+				<p className="whitespace-pre-line w-[600px] mx-auto">
+					<b className="font-bold">Né à Paris</b>
+					{` d’un père napolitain et d’une mère danoise, Gennaro a grandi auprès d’un demi-frère dano-afro américain et d’une demi-soeur italo-algériennes. Un `}
+					<b className="font-bold">contexte pluriculturel</b>
+					{` qui l’a façonné, et que l’on retrouve dans `}
+					<b className={"font-bold"}>ses influences</b>
+					{` (le design scandinave, le hip hop, l’art brut, sans oublier la pizza, étant fils de piazzaiolo).`}
+				</p>
+
+				<p className="whitespace-pre-line w-[600px] mx-auto">
+					{`Après des études en communication digitale, il devient directeur artistique et alterne entre freelance et poste en agence de pub. En 2016, il se met à peindre, un hobby qui devient une passion et qui va prendre une place importante grâce aux commandes de particuliers et de marques.`}
+				</p>
+
+				<p className="whitespace-pre-line w-[600px] mx-auto">
+					{`Son style, qui s’inscrit dans le courant de la figuration libre, est spontané et accessible. Il donne naissance à Pablo, le pigeon que l’on voit dans ses peintures, qui exprime les contradictions de la société moderne d’une manière simple.`}
+				</p>
 			</div>
-			<svg className="-mt-[35vw]"
-				width="1920" height="1108" viewBox="0 0 1920 1108" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<svg className="-mt-[35vw] w-full h-auto"
+				 width="1920" height="1108" viewBox="0 0 1920 1108" fill="none" xmlns="http://www.w3.org/2000/svg">
 				<mask id="path-1-inside-1_1014_9533" fill="white">
 					<path fillRule="evenodd" clipRule="evenodd"
 						  d="M-383.774 829.452C-329.413 829.452 -277.88 817.343 -231.725 795.676C-224.454 792.262 -215.76 794.058 -210.437 800.074C-144.805 874.257 -48.8901 921.028 57.9484 921.028C113.957 921.028 166.964 908.174 214.179 885.256C220.794 882.045 228.722 883.17 234.181 888.095C297.686 945.397 381.81 980.284 474.081 980.284C584.545 980.284 683.332 930.285 749.044 851.683C755.28 844.224 766.391 842.954 774.149 848.814C834.154 894.145 908.875 921.028 989.874 921.028C1098.58 921.028 1195.98 872.606 1261.68 796.155C1267.09 789.854 1276.15 788.034 1283.58 791.753C1331.77 815.876 1386.16 829.452 1443.72 829.452C1641.56 829.452 1801.94 669.069 1801.94 471.226C1801.94 273.384 1641.56 113 1443.72 113C1335.01 113 1237.61 161.422 1171.92 237.873C1166.5 244.175 1157.44 245.995 1150.01 242.276C1101.82 218.152 1047.43 204.577 989.874 204.577C879.41 204.577 780.624 254.576 714.912 333.178C708.676 340.637 697.564 341.907 689.807 336.046C629.801 290.716 555.08 263.832 474.081 263.832C418.072 263.832 365.066 276.686 317.85 299.605C311.236 302.816 303.307 301.691 297.848 296.765C234.343 239.463 150.22 204.577 57.9484 204.577C3.58718 204.577 -47.9459 216.685 -94.1008 238.353C-101.372 241.766 -110.066 239.971 -115.389 233.955C-181.021 159.771 -276.936 113 -383.774 113C-581.617 113 -742 273.384 -742 471.226C-742 669.069 -581.617 829.452 -383.774 829.452Z"/>
@@ -93,7 +122,7 @@ export default function AboutPage() {
 			<div className="bg-[#1F2222] h-screen -mt-[15vw] pt-[15vw]">
 				Test
 			</div>
-			<div className="bg-[#F0BD02]">
+			<div className="bg-[#F0BD02] overflow-x-clip">
 				<div className={"triangle -rotate-[3.329deg]"}>
 					<LoopBanner>
 						<span>tulipes</span>
@@ -166,7 +195,10 @@ export default function AboutPage() {
 					</svg>
 
 					<div className="flex justify-end items-end">
-						<Pigeon color="#361B8B"/>
+						<Pigeon
+							x={-15}
+							y={-15}
+							color="#361B8B"/>
 						<svg className="m-12"
 							 xmlns="http://www.w3.org/2000/svg" width="90" height="75" viewBox="0 0 90 75" fill="none">
 							<g clipPath="url(#clip0_988_5419)">
