@@ -28,7 +28,7 @@ export default function DesktopNavigation() {
                         <div className="group-hover:visible group-hover:delay-500 invisible flex items-center justify-around w-full transition-all delay-0">
                             <a href="/projets">Projets</a>
                             <a href="/moodboard">Moodboard</a>
-                            <a href="/">About</a>
+                            <a href="/about">About</a>
                             <a href="/">Shop</a>
                         </div>
                     </div>

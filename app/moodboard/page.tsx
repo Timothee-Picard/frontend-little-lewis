@@ -2,6 +2,7 @@
 
 import {useRef, useState} from "react";
 import { MouseEvent } from "react";
+import CustomTitle from "@/components/CustomTitle";
 
 export default function MoodBoardPage() {
     const [position, setPosition] = useState({ top: '50%', left: '50%' });
@@ -63,9 +64,9 @@ export default function MoodBoardPage() {
                      left: position.left,
                      cursor: dragging ? 'grabbing' : 'grab',
                  }}>
-                <h1 className={"-tracking-[17.5px] text-[15.625rem] font-bold shadow-title font-secondary italic text-customPurple text-center -mt-40 -rotate-[4.093deg] absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 select-none"}>
+                <CustomTitle className="-mt-40 text-[10rem] -rotate-[4.093deg] w-fit absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 select-none">
                     Moodboard
-                </h1>
+                </CustomTitle>
             </div>
         </div>
     );

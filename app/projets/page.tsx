@@ -1,6 +1,7 @@
 "use client"
 import Link from "next/link";
 import {useState} from "react";
+import CustomTitle from "@/components/CustomTitle";
 
 export default function ProjectsPage() {
     const [activeFilter, setActiveFilter] = useState("all")
@@ -11,7 +12,9 @@ export default function ProjectsPage() {
 
     return (
         <div className="mx-10 lg:mx-[10rem]">
-            <h1 className="relative uppercase font-secondary text-9xl italic font-extrabold mb-6 mt-20 shadow-title text-stroke text-customPurple" data-text={"Work"}>Work</h1>
+            <CustomTitle className="text-9xl mb-6 mt-20 ">
+                Work
+            </CustomTitle>
             <ul className="flex flex-wrap flex-col md:flex-row uppercase font-semibold text-custompurple gap-5 text-customPurpleDark">
                 <li className={`whitespace-nowrap border-4 border-customPurpleDark rounded-full px-8 py-2 shadow-filters cursor-pointer hover:activeFilter ${activeFilter === "all" ? "activeFilter" : ""}`} onClick={() => handleFilter("all")}>Show all</li>
                 <li className={`whitespace-nowrap border-4 border-customPurpleDark rounded-full px-8 py-2 shadow-filters cursor-pointer hover:activeFilter ${activeFilter === "branding" ? "activeFilter" : ""}`} onClick={() => handleFilter("branding")}>branding</li>

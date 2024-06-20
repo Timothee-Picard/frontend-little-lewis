@@ -5,10 +5,12 @@ import React, {HTMLProps, useState} from "react";
 type PigeonProps = {
 	className?: HTMLProps<HTMLElement>["className"];
 	color?: string;
+	x?: number;
+	y?: number;
 }
 
 export default function Pigeon(Props: PigeonProps) {
-	const {className, color = "#D88DFF"} = Props
+	const {className, color = "#D88DFF", x, y} = Props
 	const [position, setPosition] = useState({x: -20, y: -30});
 
 	const handleMouseMove = (e: React.MouseEvent<SVGSVGElement, MouseEvent>) => {
@@ -18,8 +20,8 @@ export default function Pigeon(Props: PigeonProps) {
 		const mouseY = e.clientY - rect.top;
 
 		// Center coordinates of the circle
-		const circleCenterX = 345;
-		const circleCenterY = 240;
+		const circleCenterX = x? 345 + x : 345;
+		const circleCenterY = y? 240 + y : 240;
 		const circleRadius = 60; // Adjust this based on the actual radius of your circle
 
 		// Calculate distance from the circle center

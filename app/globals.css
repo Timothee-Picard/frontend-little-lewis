@@ -35,26 +35,12 @@ html::-webkit-scrollbar {
 }
 
 @layer utilities {
-    .text-balance {
-        /*text-wrap: balance;*/
-    }
-
     .shadow-title {
-        text-shadow: 20px 9px 0 #361B8B;
+        text-shadow: 0.125em 0.0563em 0 #361B8B;
     }
 
-    .stroke-title {
-        -webkit-text-stroke: 10px #361B8B;
-        text-stroke: 10px #361B8B;
-    }
-
-    .shadow-works {
-        text-shadow: 20px 9px 0 #5497FF;
-    }
-
-    .stroke-works {
-        -webkit-text-stroke: 10px #5497FF;
-        text-stroke: 10px #5497FF;
+    .shadow-title-secondary {
+        text-shadow: 0.125em 0.0563em 0 #5497FF;
     }
 
     .text-stroke::before {
@@ -63,8 +49,18 @@ html::-webkit-scrollbar {
         top: 0;
         left: 0;
         z-index: -1;
-        -webkit-text-stroke: 0.2em #361B8B;
-        text-stroke: 0.2em #361B8B;
+        -webkit-text-stroke: 0.125em #361B8B;
+        text-stroke: 0.125em #361B8B;
+    }
+
+    .text-stroke-secondary::before {
+        content: attr(data-text);
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        -webkit-text-stroke:  0.125em #5497FF;
+        text-stroke: 0.125em #5497FF;
     }
 
     .activeFilter {
@@ -84,4 +80,14 @@ html::-webkit-scrollbar {
     display: flex;
     height: 100vh;
     min-width: 100vw;
+}
+
+.triangle::before {
+    content: '';
+    position: absolute;
+    top: -5vw;
+    left: -5vw;
+    width: 110vw;
+    height: 15vw;
+    background-color: #F0BD02;
 }

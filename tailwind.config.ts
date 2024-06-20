@@ -33,6 +33,9 @@ const config: Config = {
         '7/8': '87.5%',
         '8/8': '100%',
       },
+      backgroundSize: {
+        full: '100%',
+      }
     },
   },
   plugins: []
