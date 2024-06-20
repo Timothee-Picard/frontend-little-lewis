@@ -63,8 +63,8 @@ html::-webkit-scrollbar {
         top: 0;
         left: 0;
         z-index: -1;
-        -webkit-text-stroke: 20px #361B8B;
-        text-stroke: 10px #361B8B;
+        -webkit-text-stroke: 0.2em #361B8B;
+        text-stroke: 0.2em #361B8B;
     }
 
     .activeFilter {

@@ -6,6 +6,8 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Image from 'next/image';
 import AnimatedBackground from "@/components/AnimatedBackground";
 import Pigeon from "@/components/Pigeon";
+import CustomTitle from "@/components/CustomTitle";
+import LoopBanner from "@/components/LoopBanner";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -108,7 +110,7 @@ export default function HomePage() {
 						</clipPath>
 					</defs>
 				</svg>
-				<div className="w-[600px] max-w-full mx-auto px-4 mt-36 flex flex-col gap-5">
+				<div className="w-[60vw] max-w-full mx-auto px-4 mt-36 flex flex-col gap-5">
 					<div className="flex gap-5">
 						<div className="w-[64%] flex flex-col gap-5">
 							<svg className="w-full h-auto"
@@ -188,8 +190,21 @@ export default function HomePage() {
 					</svg>
 				</div>
 				<div className="mt-96">
-					<h2 className="-tracking-[17.5px] text-[11vw] text-stroke font-bold shadow-title font-secondary italic text-customPurple text-center -rotate-[4.093deg] mx-auto w-fit -mb-[20vw] z-50 relative">Moodboard</h2>
-					<div className="relative">
+					<CustomTitle className="relative z-10 text-[11vw] w-fit mx-auto -mb-[20vw] -rotate-[4.093deg]">
+						Moodboard
+					</CustomTitle>
+					<div className="relative overflow-hidden">
+						<div className={"absolute top-[40vw] -rotate-[3.329deg]"}>
+							<LoopBanner>
+								<span>tulipes</span>
+								<span>y.u.d.a.t.</span>
+								<span>TAG HEUER</span>
+								<span>BIEN’ici</span>
+								<span>skullcandy</span>
+								<span>pullin</span>
+								<span>giraya</span>
+							</LoopBanner>
+						</div>
 						<svg className="w-full h-auto"
 							 width="1920" height="2010" viewBox="0 0 1920 2010" fill="none"
 							 xmlns="http://www.w3.org/2000/svg">
