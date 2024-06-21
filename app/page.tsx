@@ -194,7 +194,7 @@ export default function HomePage() {
 						Moodboard
 					</CustomTitle>
 					<div className="relative overflow-hidden">
-						<div className={"absolute top-[40vw] -rotate-[3.329deg]"}>
+						<div className={"absolute top-[45vw] -rotate-[3.329deg]"}>
 							<LoopBanner>
 								<span>tulipes</span>
 								<span>y.u.d.a.t.</span>

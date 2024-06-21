@@ -12,22 +12,32 @@ export default function LoopBanner(Props: LoopBannerProps) {
 	const wrapperRef = useRef<HTMLDivElement>(null);
 
 	useEffect(() => {
-		console.log("useEffect")
 		const bannerContainer = bannerRef.current;
 		const wrapper = wrapperRef.current;
 		if (!bannerContainer || !wrapper) return;
 
-		const totalWidth = bannerContainer.clientWidth;
-		const duration = 30; // Adjust duration to control speed
+		const convertEmToPixels = (element: Element, em: number) => {
+			const fontSize = window.getComputedStyle(element).fontSize;
+			return parseFloat(fontSize) * em;
+		};
+
+		const startOffset = convertEmToPixels(wrapper, 3); // Convert 1em to pixels
+
+		// Calculate total width and add 1em in pixels
+		const totalWidth = bannerContainer.clientWidth + startOffset;
+		const duration = 40; // Adjust duration to control speed
 
 		// Duplicate elements for seamless looping
-		const children = Array.from(bannerContainer.children) as HTMLSpanElement[];
-
-		children.forEach((child, index) => {
-			const clone = child.cloneNode(true) as HTMLSpanElement;
-			bannerContainer.appendChild(clone);
+		const clones = Array.from(bannerContainer.children) as HTMLSpanElement[];
+		clones.forEach((clone) => {
+			const newClone = clone.cloneNode(true) as HTMLSpanElement;
+			bannerContainer.appendChild(newClone);
 		});
 
+		// Ensure the width of the wrapper can accommodate all clones
+		wrapper.style.width = `${totalWidth * 2}px`;
+
+		// Create GSAP animation
 		gsap.to(wrapper, {
 			x: `-=${totalWidth}`,
 			ease: "none",
@@ -41,6 +51,9 @@ export default function LoopBanner(Props: LoopBannerProps) {
 					}
 					return position;
 				})
+			},
+			startAt: {
+				x: startOffset
 			}
 		});
 	}, [children]);
