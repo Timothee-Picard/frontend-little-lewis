@@ -12,6 +12,7 @@ export default function LoopBanner(Props: LoopBannerProps) {
 	const wrapperRef = useRef<HTMLDivElement>(null);
 
 	useEffect(() => {
+		console.log("useEffect")
 		const bannerContainer = bannerRef.current;
 		const wrapper = wrapperRef.current;
 		if (!bannerContainer || !wrapper) return;
