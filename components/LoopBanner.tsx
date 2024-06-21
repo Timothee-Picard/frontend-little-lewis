@@ -34,8 +34,13 @@ export default function LoopBanner(Props: LoopBannerProps) {
 			bannerContainer.appendChild(newClone);
 		});
 
+		clones.forEach((clone) => {
+			const newClone = clone.cloneNode(true) as HTMLSpanElement;
+			bannerContainer.appendChild(newClone);
+		});
+
 		// Ensure the width of the wrapper can accommodate all clones
-		wrapper.style.width = `${totalWidth * 2}px`;
+		wrapper.style.width = `${totalWidth * 4}px`;
 
 		// Create GSAP animation
 		gsap.to(wrapper, {
