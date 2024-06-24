@@ -11,18 +11,31 @@ export default function ProjectsPage() {
     }
 
     return (
-        <div className="mx-10 lg:mx-[10rem]">
-            <CustomTitle className="text-9xl mb-6 mt-20 ">
+        <div className="">
+            <CustomTitle className="mx-10 lg:mx-[10rem] text-9xl mb-6 mt-20">
                 Work
             </CustomTitle>
-            <ul className="flex flex-wrap flex-col md:flex-row uppercase font-semibold text-custompurple gap-5 text-customPurpleDark">
-                <li className={`whitespace-nowrap border-4 border-customPurpleDark rounded-full px-8 py-2 shadow-filters cursor-pointer hover:activeFilter ${activeFilter === "all" ? "activeFilter" : ""}`} onClick={() => handleFilter("all")}>Show all</li>
-                <li className={`whitespace-nowrap border-4 border-customPurpleDark rounded-full px-8 py-2 shadow-filters cursor-pointer hover:activeFilter ${activeFilter === "branding" ? "activeFilter" : ""}`} onClick={() => handleFilter("branding")}>branding</li>
-                <li className={`whitespace-nowrap border-4 border-customPurpleDark rounded-full px-8 py-2 shadow-filters cursor-pointer hover:activeFilter ${activeFilter === "strategy" ? "activeFilter" : ""}`} onClick={() => handleFilter("strategy")}>Strategy</li>
-                <li className={`whitespace-nowrap border-4 border-customPurpleDark rounded-full px-8 py-2 shadow-filters cursor-pointer hover:activeFilter ${activeFilter === "graphism" ? "activeFilter" : ""}`} onClick={() => handleFilter("graphism")}>graphism</li>
-                <li className={`whitespace-nowrap border-4 border-customPurpleDark rounded-full px-8 py-2 shadow-filters cursor-pointer hover:activeFilter ${activeFilter === "reset" ? "activeFilter" : ""}`} onClick={() => handleFilter("reset")}>reset</li>
-            </ul>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10 mt-32">
+            <div className="pl-10 lg:pl-[10rem] w-full overflow-x-auto py-5">
+                <ul className="flex flex-row uppercase font-semibold text-custompurple gap-5 text-customPurpleDark">
+                    <li className={`whitespace-nowrap border-4 border-customPurpleDark rounded-full px-8 py-2 shadow-filters cursor-pointer hover:activeFilter ${activeFilter === "all" ? "activeFilter" : ""}`}
+                        onClick={() => handleFilter("all")}>Show all
+                    </li>
+                    <li className={`whitespace-nowrap border-4 border-customPurpleDark rounded-full px-8 py-2 shadow-filters cursor-pointer hover:activeFilter ${activeFilter === "branding" ? "activeFilter" : ""}`}
+                        onClick={() => handleFilter("branding")}>branding
+                    </li>
+                    <li className={`whitespace-nowrap border-4 border-customPurpleDark rounded-full px-8 py-2 shadow-filters cursor-pointer hover:activeFilter ${activeFilter === "strategy" ? "activeFilter" : ""}`}
+                        onClick={() => handleFilter("strategy")}>Strategy
+                    </li>
+                    <li className={`whitespace-nowrap border-4 border-customPurpleDark rounded-full px-8 py-2 shadow-filters cursor-pointer hover:activeFilter ${activeFilter === "graphism" ? "activeFilter" : ""}`}
+                        onClick={() => handleFilter("graphism")}>graphism
+                    </li>
+                    <li className={`whitespace-nowrap border-4 border-customPurpleDark rounded-full px-8 py-2 shadow-filters cursor-pointer hover:activeFilter ${activeFilter === "reset" ? "activeFilter" : ""}`}
+                        onClick={() => handleFilter("reset")}>reset
+                    </li>
+                    <div className="pr-10 lg:pr-[10rem]" />
+                </ul>
+            </div>
+            <div className="mx-10 lg:mx-[10rem] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10 mt-32 mb-14">
                 {[...Array(9)].map((_, index) => (
                     <Link key={index} href={`/projets/${index}`}>
                         <svg width="100%" height="100%" viewBox="0 0 373 627" preserveAspectRatio={"xMidYMid slice"}>
