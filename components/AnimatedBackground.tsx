@@ -38,7 +38,9 @@ export default function AnimatedBackground(props: AnimatedBackgroundProps) {
 		if(arrayElem) {
 			const element: any = document.querySelector(`#pathID-${arrayElem.pathId}`)
 			if (element !== lastAnim) {
+				// @ts-ignore
 				element.style.fill = arrayElem?.color
+				// @ts-ignore
 				if(lastAnim) lastAnim.style.fill = "white"
 			}
 		}
