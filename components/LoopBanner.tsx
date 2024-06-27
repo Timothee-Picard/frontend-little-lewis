@@ -44,7 +44,7 @@ export default function LoopBanner(Props: LoopBannerProps) {
 
 		// Create GSAP animation
 		gsap.to(wrapper, {
-			x: `-=${totalWidth / 2}`,
+			x: `-=${totalWidth}`,
 			ease: "none",
 			duration: duration,
 			repeat: -1,
