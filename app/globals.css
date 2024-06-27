@@ -91,3 +91,5 @@ html::-webkit-scrollbar {
     height: 15vw;
     background-color: #F0BD02;
 }
+
+path { transition: fill .4s ease; }

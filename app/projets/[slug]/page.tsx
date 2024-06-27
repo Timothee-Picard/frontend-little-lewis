@@ -1,6 +1,7 @@
 "use client"
 import ProjectPageDesktop from "@/components/projetPage/projetPageDesktop";
 import {useEffect, useState} from "react";
+import ProjectPageMobile from "@/components/projetPage/projetPageMobile";
 
 export default function ProjectsPage() {
 	const [isMobile, setIsMobile] = useState(false);
@@ -29,8 +30,7 @@ export default function ProjectsPage() {
 	}, []);
 	return (
 		<>
-			{isMobile ? <p>Appareil mobile</p> : <p>Appareil non mobile</p>}
-			<ProjectPageDesktop />
+			{isMobile ? <ProjectPageMobile /> : <ProjectPageDesktop />}
 		</>
 	)
 }

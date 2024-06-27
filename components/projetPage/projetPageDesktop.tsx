@@ -37,12 +37,11 @@ export default function ProjectPageDesktop() {
 	}, [])
 
 	useEffect(() => {
-		// cancel scroll X
-		document.addEventListener('scroll', (e) => {
-			if (window.scrollX !== 0) {
-				window.scrollTo(0, window.scrollY)
-			}
-		})
+		document.addEventListener('scroll', (e) => {if (window.scrollX !== 0) window.scrollTo(0, window.scrollY)})
+
+		return () => {
+			document.removeEventListener('scroll', (e) => {if (window.scrollX !== 0) window.scrollTo(0, window.scrollY)})
+		}
 	}, []);
 
 	return (
@@ -53,7 +52,8 @@ export default function ProjectPageDesktop() {
 						   src={"https://picsum.photos/139/139"}
 						   alt={"aa"} width={139} height={139}/>
 					<div className="relative">
-						<CustomTitle className="absolute top-0 translate-y-5/8 -translate-x-1/8 -rotate-[5deg] text-9xl ">
+						<CustomTitle
+							className="absolute top-0 translate-y-5/8 -translate-x-1/8 -rotate-[5deg] text-9xl ">
 							Gyraya & co
 						</CustomTitle>
 						<svg width="700" height="700" viewBox="0 0 893 893" preserveAspectRatio={"xMidYMid slice"}>
@@ -63,7 +63,7 @@ export default function ProjectPageDesktop() {
 										  d="M863.531 -1.28815e-06C872.132 -9.12172e-07 879.194 6.80023 879.519 15.3954L893 371.879L884.797 626.323L884.797 844.164C884.797 852.428 878.503 859.332 870.275 860.095L673.852 878.321L450.016 878.321L227.352 893L20.5979 879.297C12.2746 878.746 5.77163 871.892 5.65749 863.551L0.000102393 450.17L5.64612 32.9095C5.76453 24.1582 12.8925 17.126 21.6447 17.126L227.352 17.126L450.016 -1.93635e-05L863.531 -1.28815e-06Z"/>
 								</clipPath>
 							</defs>
-							<image href="https://picsum.photos/300/300" width="100%" height="100%" x="0" y="0"
+							<image href="/projectID/img_8.png" width="100%" height="100%" x="0" y="0"
 								   clipPath={`url(#clipPath)`}/>
 						</svg>
 						<p className="absolute bottom-0 uppercase right-full w-44 text-right mr-10">
@@ -77,13 +77,13 @@ export default function ProjectPageDesktop() {
 							 xmlns="http://www.w3.org/2000/svg">
 							<path fillRule="evenodd" clipRule="evenodd"
 								  d="M716.451 1682.72C716.451 1628.35 704.343 1576.82 682.676 1530.67C679.262 1523.4 681.058 1514.7 687.074 1509.38C761.258 1443.75 808.029 1347.83 808.029 1240.99C808.029 1184.98 795.175 1131.97 772.255 1084.76C769.044 1078.14 770.169 1070.21 775.095 1064.76C832.395 1001.25 867.279 917.129 867.279 824.86C867.279 714.397 817.282 615.612 738.682 549.9C731.223 543.664 729.953 532.553 735.813 524.795C781.145 464.789 808.029 390.067 808.029 309.067C808.029 200.359 759.608 102.96 683.156 37.2636C676.855 31.8488 675.035 22.7907 678.754 15.3615C702.876 -32.8287 716.451 -87.2165 716.451 -144.775C716.451 -342.618 556.068 -503.001 358.226 -503.001C160.383 -503.001 -0.000104189 -342.618 -9.55407e-05 -144.775C-9.07889e-05 -36.067 48.4218 61.3313 124.873 127.028C131.175 132.443 132.995 141.501 129.276 148.93C105.153 197.121 91.5781 251.508 91.5781 309.067C91.5781 419.53 141.576 518.314 220.176 584.026C227.635 590.262 228.905 601.374 223.044 609.131C177.712 669.138 150.828 743.859 150.828 824.86C150.828 880.87 163.683 933.878 186.602 981.095C189.813 987.709 188.689 995.638 183.763 1001.1C126.463 1064.6 91.5781 1148.72 91.5781 1240.99C91.5781 1295.35 103.687 1346.89 125.354 1393.04C128.767 1400.31 126.972 1409.01 120.956 1414.33C46.7713 1479.96 -2.03286e-05 1575.88 -1.56585e-05 1682.72C-7.01057e-06 1880.56 160.383 2040.94 358.226 2040.94C556.068 2040.94 716.451 1880.56 716.451 1682.72Z"
-								  fill="#328FC2"/>
+								  fill="#E7B11D"/>
 						</svg>
 						<Image className="absolute -rotate-[16deg] top-[15%] left-0 -translate-x-3 z-50"
 							   src={"https://picsum.photos/160/100"}
 							   alt={"aa"} width={160} height={100}/>
 					</div>
-					<div className="h-screen px-[200px] w-max bg-[#328FC2] flex justify-center items-center">
+					<div className="h-screen px-[200px] w-max bg-[#E7B11D] flex justify-center items-center">
 						<div className="max-w-[550px] flex flex-col gap-[100px]">
 							<h2 className="text-4xl normal-case">Lorem ipsum dolor sit amet raeddg</h2>
 							<p className="text-xl normal-case">
@@ -96,19 +96,21 @@ export default function ProjectPageDesktop() {
 						</div>
 					</div>
 				</div>
-				<div className="w-[700px]">
-					<Image className="w-full h-full"
-						   src={"https://picsum.photos/300/300"}
-						   alt={"aa"} width={300} height={300}/>
+				<div className="min-w-fit border-y border-[40px] border-[#0058BC] h-screen flex justify-center items-center">
+					<Image src={"/projectID/img_6.png"}
+						   width={1462}
+						   height={2880}
+						   className="relative w-[40vw]"
+						   alt={"aa"}/>
 				</div>
-				<div className="min-w-[100vw] h-screen bg-[#84E3DF] flex justify-center items-center">
-					<Image src={"/img.png"}
-						   className={"h-[600px] w-auto object-contain"}
-						   width={2377}
-						   height={1219}
-						   alt={"aaa"}/>
+				<div className="min-w-fit h-screen bg-[#84E3DF] flex justify-center items-center py-20 px-80">
+					<Image src={"/projectID/img_7.png"}
+						   width={1362}
+						   height={1742}
+						   className="h-full w-auto"
+						   alt={"aa"}/>
 				</div>
-				<div className="relative min-w-[100vw] h-screen flex justify-center items-center">
+				<div className="relative min-w-[100vw] h-screen flex justify-center items-center bg-white">
 					<Image className="absolute top-0 left-40 -translate-x-1/2 z-50 w-[70%]" src={"/left-leaf.png"}
 						   alt={""} width={3539} height={2397}/>
 
@@ -142,11 +144,11 @@ export default function ProjectPageDesktop() {
 						</div>
 					</div>
 				</div>
-				<div className="relative min-w-[100vw] bg-blue-700">
-					<Image src={"https://picsum.photos/2000/3000"}
-						   width={200}
-						   height={300}
-						   className="h-full w-full"
+				<div className="relative min-w-[100vw] bg-white flex justify-center items-center">
+					<Image src={"/projectID/img.png"}
+						   width={872}
+						   height={610}
+						   className="w-[40vw]"
 						   alt={"aa"}/>
 					<svg width="121" height="98"
 						 className="absolute top-10 left-1/2 -translate-x-1/2"
@@ -177,18 +179,35 @@ export default function ProjectPageDesktop() {
 				</div>
 			</div>
 
-			<div className="flex flex-col overflow-y-auto w-full overflow-hidden">
+			<div className="flex flex-col overflow-y-auto w-full overflow-hidden bg-white">
 				<div className="mx-auto w-full">
-					<Image src={"https://picsum.photos/2000/3000"} width={200} height={300} alt={"aa"}/>
-					<Image src={"https://picsum.photos/2000/3000"} width={200} height={300} alt={"aa"}/>
-					<Image src={"https://picsum.photos/2000/3000"} width={200} height={300} alt={"aa"}/>
-					<Image src={"https://picsum.photos/2000/3000"} width={200} height={3000} alt={"aa"}/>
-					<Image src={"https://picsum.photos/2000/3000"} width={200} height={300} alt={"aa"}/>
-					<div className="bg-red-600">
-						<Image src={"https://picsum.photos/3000/1000"}
+					<Image src={"/projectID/img_1.png"}
+						   width={2798}
+						   height={1184}
+						   className="w-[80vw] mx-auto my-20"
+						   alt={"aa"}/>
+					<Image src={"/projectID/img_2.png"}
+						   width={2798}
+						   height={1924}
+						   className="w-[80vw] mx-auto my-20"
+						   alt={"aa"}/>
+					<Image src={"/projectID/img_4.png"}
+						   width={3840}
+						   height={2686}
+						   className="w-full my-20"
+						   alt={"aa"}/>
+					<Image src={"/projectID/img_5.png"}
+						   width={2720}
+						   height={1796}
+						   className="w-[80vw] mx-auto my-20"
+						   alt={"aa"}/>
+					<div className="bg-[#E7B11D]">
+						<Image src={"/projectID/img_3.png"}
 							   className="w-full px-4 pt-10"
-							   width={200} height={300} alt={"aa"}/>
-						<p className="max-w-[630px] text-3xl text-center mx-auto py-48">
+							   width={3710}
+							   height={1818}
+							   alt={"aa"}/>
+						<p className="max-w-[630px] text-3xl text-white text-center mx-auto py-48">
 							Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 						</p>
 						<div className="relative">

@@ -90,7 +90,7 @@ export default function MoodBoardPage() {
                        alt="Moodboard" />
                 <Image className="rounded absolute top-[50%] left-[61%] -translate-y-1/2 -translate-x-1/2 select-none"
                        draggable="false"
-                       src={"/moodboard/img_4.png"}
+                       src={"/moodboard/img_2.png"}
                        width={475.286} height={327.577}
                        alt="Moodboard" />
                 <Image className="rounded absolute top-[59%] left-[66.2%] -translate-y-1/2 -translate-x-1/2 select-none"
