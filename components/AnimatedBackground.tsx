@@ -45,14 +45,13 @@ export default function AnimatedBackground(props: AnimatedBackgroundProps) {
 				if(lastAnim) lastAnim.style.fill = "white"
 			}
 		}
-		// @ts-ignore
 		setLastAnim(element)
 	}, [toIncr]);
 
 	useEffect(() => {
 		animations.forEach((anim) => {
 			const element = document.querySelector(`#pathID-${anim.pathId}`)
-			element.style.fill = "white"
+			if(element) element.style.fill = "white"
 		})
 	}, []);
 
