@@ -52,6 +52,7 @@ export default function AnimatedBackground(props: AnimatedBackgroundProps) {
 	useEffect(() => {
 		animations.forEach((anim) => {
 			const element = document.querySelector(`#pathID-${anim.pathId}`)
+			// @ts-ignore
 			if(element) element.style.fill = "white"
 		})
 	}, []);
