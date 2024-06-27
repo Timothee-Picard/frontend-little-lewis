@@ -35,10 +35,12 @@ export default function AnimatedBackground(props: AnimatedBackgroundProps) {
 	useEffect(() => {
 		const randomElement = Math.floor(Math.random() * animations.length + 1)
 		const arrayElem = animations.find(element => element.pathId === randomElement)
-		const element: any = document.querySelector(`#pathID-${arrayElem.pathId}`)
-		if (element !== lastAnim) {
-			element.style.fill = arrayElem?.color
-			if(lastAnim) lastAnim.style.fill = "white"
+		if(arrayElem) {
+			const element: any = document.querySelector(`#pathID-${arrayElem.pathId}`)
+			if (element !== lastAnim) {
+				element.style.fill = arrayElem?.color
+				if(lastAnim) lastAnim.style.fill = "white"
+			}
 		}
 		setLastAnim(element)
 	}, [toIncr]);
