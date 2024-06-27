@@ -35,7 +35,7 @@ export default function AnimatedBackground(props: AnimatedBackgroundProps) {
 	useEffect(() => {
 		const randomElement = Math.floor(Math.random() * animations.length + 1)
 		const arrayElem = animations.find(element => element.pathId === randomElement)
-		let element
+		let element = undefined
 		if(arrayElem) {
 			element = document.querySelector(`#pathID-${arrayElem.pathId}`)
 			if (element !== lastAnim) {
@@ -45,6 +45,7 @@ export default function AnimatedBackground(props: AnimatedBackgroundProps) {
 				if(lastAnim) lastAnim.style.fill = "white"
 			}
 		}
+		// @ts-ignore
 		setLastAnim(element)
 	}, [toIncr]);
 
