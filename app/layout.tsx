@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import {ReactNode} from "react";
 import DesktopNavigation from "@/components/navigation/deskstopNavigation";
-import localFont from "@next/font/local";
+import localFont from "next/font/local";
 export const metadata: Metadata = {
   title: "Little Lewis",
   description: "Artist and designer",

@@ -1,19 +1,24 @@
 "use client";
 
-import {useRef, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import { MouseEvent } from "react";
 import CustomTitle from "@/components/CustomTitle";
 import Image from "next/image";
+import {intervalsManager} from "next/dist/server/web/sandbox/resource-managers";
 
 export default function MoodBoardPage() {
+    const containerDrag = useRef<HTMLDivElement>(null);
     const [position, setPosition] = useState({ top: '50%', left: '50%' });
     const [dragging, setDragging] = useState(false);
     const [startPosition, setStartPosition] = useState({ x: 0, y: 0 });
     const [offset, setOffset] = useState({ x: 0, y: 0 });
+    const [velocity, setVelocity] = useState({ x: 0, y: 0 });
 
-    const containerDrag = useRef<any>();
+    const [intervalRef, setIntervalRef] = useState<NodeJS.Timeout | null>(null);
 
     function handleMouseDown(e: MouseEvent) {
+        if (intervalRef) clearInterval(intervalRef);
+        setVelocity({ x: 0, y: 0 });
         setDragging(true);
         setStartPosition({ x: e.clientX, y: e.clientY });
         setOffset({
@@ -21,28 +26,75 @@ export default function MoodBoardPage() {
             y: parseFloat(position.top) / 100 * window.innerHeight,
         });
     }
-
     function handleMouseUp() {
         setDragging(false);
+        setOffset({
+            x: parseFloat(position.left) / 100 * window.innerWidth,
+            y: parseFloat(position.top) / 100 * window.innerHeight,
+        });
+        setIntervalRef(
+            setInterval(() => {
+                // Réduire progressivement la vélocité
+                setVelocity(prevVelocity => ({
+                    x: prevVelocity.x * 0.95,
+                    y: prevVelocity.y * 0.95,
+                }));
+            }, 16) // 16 ms correspond à environ 60 fps
+        )
     }
+
+    useEffect(() => {
+        if(containerDrag.current === null) return;
+        if(dragging) return;
+        // Arrêter l'intervalle lorsque la vélocité est suffisamment faible
+        if (Math.abs(velocity.x) < 0.5 && Math.abs(velocity.y) < 0.5) {
+            clearInterval(intervalRef!);
+            setIntervalRef(null);
+            return
+        }
+
+        let newLeft = (offset.x - velocity.x) / window.innerWidth * 100;
+        let newTop = (offset.y - velocity.y) / window.innerHeight * 100;
+
+        const containerWidth = containerDrag.current.clientWidth;
+        const containerHeight = containerDrag.current.clientHeight;
+
+        const containerWidthPercent = containerWidth / window.innerWidth * 100;
+        const containerHeightPercent = containerHeight / window.innerHeight * 100;
+
+        newLeft = Math.max((-containerWidthPercent / 2) + 100, Math.min(containerWidthPercent / 2, newLeft));
+        newTop = Math.max((-containerHeightPercent / 2) + 100, Math.min(containerHeightPercent / 2, newTop));
+
+        setPosition({
+            left: `${newLeft}%`,
+            top: `${newTop}%`,
+        });
+
+        // Mettre à jour le offset pour la prochaine boucle
+        setOffset({ x: newLeft / 100 * window.innerWidth, y: newTop / 100 * window.innerHeight });
+    }, [velocity]);
 
     function handleMouseMove(e: MouseEvent) {
         if (!dragging) return;
+        if(containerDrag.current === null) return;
+
+        const factor = 5; // Augmentez ce facteur pour réduire la vitesse
 
         const deltaX = e.clientX - startPosition.x;
         const deltaY = e.clientY - startPosition.y;
 
+        // Calculer la vélocité en fonction du déplacement
+        setVelocity({ x: -deltaX / factor, y: -deltaY / factor });
+
         let newLeft = (offset.x + deltaX) / window.innerWidth * 100;
         let newTop = (offset.y + deltaY) / window.innerHeight * 100;
 
-        const containerWidth = containerDrag.current.clientWidth; // Largeur du conteneur en pixels
-        const containerHeight = containerDrag.current.clientHeight; // Hauteur du conteneur en pixels
+        const containerWidth = containerDrag.current.clientWidth;
+        const containerHeight = containerDrag.current.clientHeight;
 
-        // Convertir la taille du conteneur en pourcentage de la taille de l'écran
         const containerWidthPercent = containerWidth / window.innerWidth * 100;
         const containerHeightPercent = containerHeight / window.innerHeight * 100;
 
-        // Clamp values to stay within the specified range, taking into account the container size
         newLeft = Math.max((-containerWidthPercent / 2) + 100, Math.min(containerWidthPercent / 2, newLeft));
         newTop = Math.max((-containerHeightPercent / 2) + 100, Math.min(containerHeightPercent / 2, newTop));
 

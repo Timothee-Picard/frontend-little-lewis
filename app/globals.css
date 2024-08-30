@@ -93,3 +93,30 @@ html::-webkit-scrollbar {
 }
 
 path { transition: fill .4s ease; }
+
+
+
+
+.cls-1 {
+    fill: #5e32ec;
+}
+
+.cls-1, .cls-2, .cls-3, .cls-4 {
+    stroke-width: 0px;
+}
+
+.cls-2 {
+    display: none;
+}
+
+.cls-2, .cls-4 {
+    fill: #361b8b;
+}
+
+.cls-3 {
+    fill: none;
+}
+
+.cls-5 {
+    clip-path: url(#clippath);
+}
