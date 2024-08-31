@@ -14,10 +14,10 @@ export default function MoodBoardPage() {
     const [offset, setOffset] = useState({ x: 0, y: 0 });
     const [velocity, setVelocity] = useState({ x: 0, y: 0 });
 
-    const [intervalRef, setIntervalRef] = useState<NodeJS.Timeout | null>(null);
+    const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
     function handleMouseDown(e: MouseEvent) {
-        if (intervalRef) clearInterval(intervalRef);
+        if (intervalRef) clearInterval(intervalRef.current!);
         setVelocity({ x: 0, y: 0 });
         setDragging(true);
         setStartPosition({ x: e.clientX, y: e.clientY });
@@ -32,27 +32,45 @@ export default function MoodBoardPage() {
             x: parseFloat(position.left) / 100 * window.innerWidth,
             y: parseFloat(position.top) / 100 * window.innerHeight,
         });
-        setIntervalRef(
-            setInterval(() => {
-                // Réduire progressivement la vélocité
-                setVelocity(prevVelocity => ({
+
+        if (intervalRef.current) {
+            // console.log('Interval déjà en cours, on le nettoie avant d\'en créer un nouveau');
+            clearInterval(intervalRef.current);
+        }
+
+        intervalRef.current = setInterval(() => {
+            setVelocity(prevVelocity => {
+                const newVelocity = {
                     x: prevVelocity.x * 0.95,
                     y: prevVelocity.y * 0.95,
-                }));
-            }, 16) // 16 ms correspond à environ 60 fps
-        )
+                };
+
+                // Arrêter l'intervalle si la vélocité est suffisamment faible
+                if (Math.abs(newVelocity.x) < 0.5 && Math.abs(newVelocity.y) < 0.5) {
+                    // console.log('clear interval');
+                    clearInterval(intervalRef.current!);
+                    intervalRef.current = null;
+                }
+
+                return newVelocity; // Retourne la nouvelle vélocité
+            });
+        }, 16); // 16 ms correspond à environ 60 fps
     }
 
     useEffect(() => {
-        if(containerDrag.current === null) return;
-        if(dragging) return;
-        // Arrêter l'intervalle lorsque la vélocité est suffisamment faible
-        if (Math.abs(velocity.x) < 0.5 && Math.abs(velocity.y) < 0.5) {
-            clearInterval(intervalRef!);
-            setIntervalRef(null);
-            return
-        }
+        return () => {
+            // Cleanup when component unmounts or on re-render
+            if (intervalRef.current) {
+                clearInterval(intervalRef.current);
+            }
+        };
+    }, []);
 
+    useEffect(() => {
+        if (containerDrag.current === null) return;
+        if (dragging) return;
+
+        // Mettre à jour la position en fonction de la vélocité
         let newLeft = (offset.x - velocity.x) / window.innerWidth * 100;
         let newTop = (offset.y - velocity.y) / window.innerHeight * 100;
 
@@ -64,6 +82,23 @@ export default function MoodBoardPage() {
 
         newLeft = Math.max((-containerWidthPercent / 2) + 100, Math.min(containerWidthPercent / 2, newLeft));
         newTop = Math.max((-containerHeightPercent / 2) + 100, Math.min(containerHeightPercent / 2, newTop));
+
+        // Vérification des rebonds sur les bords lors du drag
+        if (newLeft === (-containerWidthPercent / 2) + 100 || newLeft === containerWidthPercent / 2) {
+            // bounce x
+            setVelocity(prevVelocity => ({
+                x: -prevVelocity.x,
+                y: prevVelocity.y,
+            }));
+        }
+
+        if (newTop === (-containerHeightPercent / 2) + 100 || newTop === containerHeightPercent / 2) {
+            // bounce y
+            setVelocity(prevVelocity => ({
+                x: prevVelocity.x,
+                y: -prevVelocity.y,
+            }));
+        }
 
         setPosition({
             left: `${newLeft}%`,
@@ -78,7 +113,7 @@ export default function MoodBoardPage() {
         if (!dragging) return;
         if(containerDrag.current === null) return;
 
-        const factor = 5; // Augmentez ce facteur pour réduire la vitesse
+        const factor = 3; // Augmentez ce facteur pour réduire la vitesse
 
         const deltaX = e.clientX - startPosition.x;
         const deltaY = e.clientY - startPosition.y;
