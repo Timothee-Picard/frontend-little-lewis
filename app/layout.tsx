@@ -3,10 +3,18 @@ import "./globals.css";
 import {ReactNode} from "react";
 import DesktopNavigation from "@/components/navigation/deskstopNavigation";
 import localFont from "next/font/local";
+import Loading from "@/components/Loading";
+import { Anton } from 'next/font/google'
+
 export const metadata: Metadata = {
   title: "Little Lewis",
   description: "Artist and designer",
 };
+
+const anton = Anton({
+    weight: '400',
+    subsets: ['latin']
+})
 
 const builtTitling = localFont({
     src: [
@@ -65,9 +73,10 @@ type RootLayoutProps = {
 export default function RootLayout(RootLayoutProps: RootLayoutProps) {
     const { children } = RootLayoutProps;
   return (
-    <html lang="fr" className={`${builtTitling.variable}`}>
+    <html lang="fr" className={`${builtTitling.variable} ${anton.className}`}>
       <body>
       <DesktopNavigation />
+      <Loading />
       {children}
       </body>
     </html>

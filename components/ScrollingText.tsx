@@ -16,7 +16,7 @@ export default function ScrollingText() {
 				trigger: paragraph,
 				start: "top center+=50",
 				end: "bottom center-=50",
-				markers: true,
+				// markers: true,
 				onEnter: () => gsap.to(paragraph, { color: "#000000", duration: 0.5 }),
 				onLeave: () => gsap.to(paragraph, { color: "#d1d5db", duration: 0.5 }),
 				onEnterBack: () => gsap.to(paragraph, { color: "#000000", duration: 0.5 }),
@@ -27,20 +27,6 @@ export default function ScrollingText() {
 
 	return (
 		<div className="flex flex-col gap-20 mb-96">
-			<p
-				ref={(el) => (paragraphsRef.current[0] = el)}
-				className="whitespace-pre-line w-[600px] mx-auto text-gray-300"
-			>
-				<b className="font-bold">Hi</b>
-				{`, I'm Gennaro Lewis Grassi also known as `}
-				<b className="font-bold">{`lil' lewis`}</b>.
-			</p>
-			<p
-				ref={(el) => (paragraphsRef.current[1] = el)}
-				className="whitespace-pre-line w-[600px] mx-auto text-gray-300"
-			>
-				{`I'm a brand designer and multidisciplinary artist.\nI'm half danish / half italian and I grew up in Paris, France and I live with Pablo, the bird you can see in my drawings.`}
-			</p>
 			<p
 				ref={(el) => (paragraphsRef.current[2] = el)}
 				className="whitespace-pre-line w-[600px] mx-auto text-gray-300"

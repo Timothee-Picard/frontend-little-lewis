@@ -50,7 +50,7 @@ export default function ProjectPageDesktop() {
 				<div className="flex justify-center items-center min-w-[80vw] py-20 px-36">
 					<Image className="absolute rotate-12 top-1/2 left-0 -translate-x-3 -translate-y-1/2 z-50"
 						   src={"https://picsum.photos/139/139"}
-						   alt={"aa"} width={139} height={139}/>
+						   alt={"aa"} width={139} height={139} loading={"eager"}/>
 					<div className="relative">
 						<CustomTitle
 							className="absolute top-0 translate-y-5/8 -translate-x-1/8 -rotate-[5deg] text-9xl ">
@@ -64,7 +64,7 @@ export default function ProjectPageDesktop() {
 								</clipPath>
 							</defs>
 							<image href="/projectID/img_8.png" width="100%" height="100%" x="0" y="0"
-								   clipPath={`url(#clipPath)`}/>
+								   clipPath={`url(#clipPath)`} />
 						</svg>
 						<p className="absolute bottom-0 uppercase right-full w-44 text-right mr-10">
 							Lorem ipsum dolor sit amet raeddg
@@ -81,7 +81,7 @@ export default function ProjectPageDesktop() {
 						</svg>
 						<Image className="absolute -rotate-[16deg] top-[15%] left-0 -translate-x-3 z-50"
 							   src={"https://picsum.photos/160/100"}
-							   alt={"aa"} width={160} height={100}/>
+							   alt={"aa"} width={160} height={100} loading={"eager"}/>
 					</div>
 					<div className="h-screen px-[200px] w-max bg-[#E7B11D] flex justify-center items-center">
 						<div className="max-w-[550px] flex flex-col gap-[100px]">
@@ -101,22 +101,22 @@ export default function ProjectPageDesktop() {
 						   width={1462}
 						   height={2880}
 						   className="relative w-[40vw]"
-						   alt={"aa"}/>
+						   alt={"aa"} loading={"eager"}/>
 				</div>
 				<div className="min-w-fit h-screen bg-[#84E3DF] flex justify-center items-center py-20 px-80">
 					<Image src={"/projectID/img_7.png"}
 						   width={1362}
 						   height={1742}
 						   className="h-full w-auto"
-						   alt={"aa"}/>
+						   alt={"aa"} loading={"eager"}/>
 				</div>
 				<div className="relative min-w-[100vw] h-screen flex justify-center items-center bg-white">
 					<Image className="absolute top-0 left-40 -translate-x-1/2 z-50 w-[70%]" src={"/left-leaf.png"}
-						   alt={""} width={3539} height={2397}/>
+						   alt={""} width={3539} height={2397} loading={"eager"}/>
 
 					<Image className="absolute bottom-0 right-28 translate-x-1/2 z-50 w-[70%]"
 						   src={"/right-leaf.png"}
-						   alt={""} width={3539} height={2397}/>
+						   alt={""} width={3539} height={2397} loading={"eager"}/>
 					<div className="flex gap-32 items-end">
 						<div className="relative">
 							<span
@@ -149,7 +149,7 @@ export default function ProjectPageDesktop() {
 						   width={872}
 						   height={610}
 						   className="w-[40vw]"
-						   alt={"aa"}/>
+						   alt={"aa"} loading={"eager"}/>
 					<svg width="121" height="98"
 						 className="absolute top-10 left-1/2 -translate-x-1/2"
 						 viewBox="0 0 121 98" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -185,28 +185,28 @@ export default function ProjectPageDesktop() {
 						   width={2798}
 						   height={1184}
 						   className="w-[80vw] mx-auto my-20"
-						   alt={"aa"}/>
+						   alt={"aa"} loading={"eager"}/>
 					<Image src={"/projectID/img_2.png"}
 						   width={2798}
 						   height={1924}
 						   className="w-[80vw] mx-auto my-20"
-						   alt={"aa"}/>
+						   alt={"aa"} loading={"eager"}/>
 					<Image src={"/projectID/img_4.png"}
 						   width={3840}
 						   height={2686}
 						   className="w-full my-20"
-						   alt={"aa"}/>
+						   alt={"aa"} loading={"eager"}/>
 					<Image src={"/projectID/img_5.png"}
 						   width={2720}
 						   height={1796}
 						   className="w-[80vw] mx-auto my-20"
-						   alt={"aa"}/>
+						   alt={"aa"} loading={"eager"}/>
 					<div className="bg-[#E7B11D]">
 						<Image src={"/projectID/img_3.png"}
 							   className="w-full px-4 pt-10"
 							   width={3710}
 							   height={1818}
-							   alt={"aa"}/>
+							   alt={"aa"} loading={"eager"}/>
 						<p className="max-w-[630px] text-3xl text-white text-center mx-auto py-48">
 							Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 						</p>

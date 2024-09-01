@@ -10,6 +10,7 @@ export default function ProjectsPage() {
         setActiveFilter(filter)
     }
 
+    // @ts-ignore
     return (
         <div className="">
             <CustomTitle className="mx-10 lg:mx-[10rem] text-9xl mb-6 mt-20">
@@ -29,14 +30,20 @@ export default function ProjectsPage() {
                     <li className={`whitespace-nowrap border-4 border-customPurpleDark rounded-full px-8 py-2 shadow-filters cursor-pointer hover:activeFilter ${activeFilter === "graphism" ? "activeFilter" : ""}`}
                         onClick={() => handleFilter("graphism")}>graphism
                     </li>
-                    <li className={`whitespace-nowrap border-4 border-customPurpleDark rounded-full px-8 py-2 shadow-filters cursor-pointer hover:activeFilter ${activeFilter === "reset" ? "activeFilter" : ""}`}
-                        onClick={() => handleFilter("reset")}>reset
+                    <li className={`whitespace-nowrap flex items-center gap-2 border-4 border-customPurpleDark rounded-full px-8 py-2 shadow-filters cursor-pointer hover:activeFilter ${activeFilter === "reset" ? "activeFilter" : ""}`}
+                        onClick={() => handleFilter("reset")}>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="1.2rem" height="1.2rem" viewBox="0 0 24 24">
+                            <path fill="currentColor"
+                                  d="M7.207 2.543a1 1 0 0 1 0 1.414L5.414 5.75h7.836a8 8 0 1 1-8 8a1 1 0 1 1 2 0a6 6 0 1 0 6-6H5.414l1.793 1.793a1 1 0 0 1-1.414 1.414l-3.5-3.5a1 1 0 0 1 0-1.414l3.5-3.5a1 1 0 0 1 1.414 0"/>
+                        </svg>
+                        reset
                     </li>
-                    <div className="pr-10 lg:pr-[10rem]" />
+                    <div className="pr-10 lg:pr-[10rem]"/>
                 </ul>
             </div>
-            <div className="mx-10 lg:mx-[10rem] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10 mt-32 mb-14">
-                {[...Array(9)].map((_, index) => (
+            <div
+                className="mx-10 lg:mx-[10rem] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10 mt-32 mb-14">
+            {[...Array(9)].map((_, index) => (
                     <Link key={index} href={`/projets/${index}`}>
                         <svg width="100%" height="100%" viewBox="0 0 373 627" preserveAspectRatio={"xMidYMid slice"}>
                             <defs>

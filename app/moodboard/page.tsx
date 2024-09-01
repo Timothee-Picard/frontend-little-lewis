@@ -159,166 +159,199 @@ export default function MoodBoardPage() {
                        draggable="false"
                        src={"/moodboard/img.png"}
                        width={459.592} height={459.592}
+                       loading={"eager"}
                        alt="Moodboard" />
                 <Image className="z-10 rounded absolute top-[43%] left-[33%] -translate-y-1/2 -translate-x-1/2 select-none"
                        draggable="false"
                        src={"/moodboard/img_1.png"}
                        width={301} height={219}
+                       loading={"eager"}
                        alt="Moodboard" />
                 <Image className="z-10 rounded absolute top-[41%] left-[66%] -translate-y-1/2 -translate-x-1/2 select-none"
                        draggable="false"
                        src={"/moodboard/img_2.png"}
                        width={189} height={190}
+                       loading={"eager"}
                        alt="Moodboard" />
                 <Image className="z-10 rounded absolute top-[15%] left-[54%] -translate-y-1/2 -translate-x-1/2 select-none"
                        draggable="false"
                        src={"/moodboard/img_3.png"}
                        width={532.156} height={605.172}
+                       loading={"eager"}
                        alt="Moodboard" />
                 <Image className="rounded absolute top-[50%] left-[61%] -translate-y-1/2 -translate-x-1/2 select-none"
                        draggable="false"
                        src={"/moodboard/img_2.png"}
                        width={475.286} height={327.577}
+                       loading={"eager"}
                        alt="Moodboard" />
                 <Image className="rounded absolute top-[59%] left-[66.2%] -translate-y-1/2 -translate-x-1/2 select-none"
                        draggable="false"
                        src={"/moodboard/img_5.png"}
                        width={503} height={505}
+                       loading={"eager"}
                        alt="Moodboard" />
                 <Image className="rounded absolute top-[47.5%] left-[66.2%] -translate-y-1/2 -translate-x-1/2 select-none"
                        draggable="false"
                        src={"/moodboard/img_6.png"}
                        width={80.676} height={80.676}
+                       loading={"eager"}
                        alt="Moodboard" />
                 <Image className="rounded absolute top-[57%] left-[32%] -translate-y-1/2 -translate-x-1/2 select-none"
                        draggable="false"
                        src={"/moodboard/img_7.png"}
                        width={244} height={245}
+                       loading={"eager"}
                        alt="Moodboard" />
                 <Image className="rounded absolute top-[60.7%] left-[31.3%] -translate-y-1/2 -translate-x-1/2 select-none"
                        draggable="false"
                        src={"/moodboard/img_8.png"}
                        width={56.566} height={56.566}
+                       loading={"eager"}
                        alt="Moodboard" />
                 <Image className="rounded absolute top-[66.8%] left-[37%] -translate-y-1/2 -translate-x-1/2 select-none"
                        draggable="false"
                        src={"/moodboard/img_9.png"}
                        width={278} height={281}
+                       loading={"eager"}
                        alt="Moodboard" />
                 <Image className="rounded absolute top-[79%] left-[53%] -translate-y-1/2 -translate-x-1/2 select-none"
                        draggable="false"
                        src={"/moodboard/img_10.png"}
                        width={634} height={620}
+                       loading={"eager"}
                        alt="Moodboard" />
                 <Image className="rounded absolute top-[79%] left-[67%] -translate-y-1/2 -translate-x-1/2 select-none"
                        draggable="false"
                        src={"/moodboard/img_11.png"}
                        width={267.33} height={193.451}
+                       loading={"eager"}
                        alt="Moodboard" />
                 <Image className="z-10 rounded absolute top-[30%] left-[71%] -translate-y-1/2 -translate-x-1/2 select-none"
                        draggable="false"
                        src={"/moodboard/img_12.png"}
                        width={341.741} height={235.535}
+                       loading={"eager"}
                        alt="Moodboard" />
                 <Image className="rounded absolute top-[32.3%] left-[76.4%] -translate-y-1/2 -translate-x-1/2 select-none"
                        draggable="false"
                        src={"/moodboard/img_13.png"}
                        width={413.407} height={413.407}
+                       loading={"eager"}
                        alt="Moodboard" />
                 <Image className="rounded absolute top-[27%] left-[81%] -translate-y-1/2 -translate-x-1/2 select-none"
                        draggable="false"
                        src={"/moodboard/img_14.png"}
                        width={146} height={146}
+                       loading={"eager"}
                        alt="Moodboard" />
                 <Image className="rounded absolute top-[43%] left-[94%] -translate-y-1/2 -translate-x-1/2 select-none"
                        draggable="false"
                        src={"/moodboard/img_15.png"}
                        width={503} height={669}
+                       loading={"eager"}
                        alt="Moodboard" />
                 <Image className="rounded absolute top-[12%] left-[87%] -translate-y-1/2 -translate-x-1/2 select-none"
                        draggable="false"
                        src={"/moodboard/img_16.png"}
                        width={537.213} height={537.213}
+                       loading={"eager"}
                        alt="Moodboard" />
                 <Image className="rounded absolute top-[13%] left-[71%] -translate-y-1/2 -translate-x-1/2 select-none"
                        draggable="false"
                        src={"/moodboard/img_17.png"}
                        width={202} height={228}
+                       loading={"eager"}
                        alt="Moodboard" />
                 <Image className="rounded absolute top-[53%] left-[90%] -translate-y-1/2 -translate-x-1/2 select-none"
                        draggable="false"
                        src={"/moodboard/img_18.png"}
                        width={244} height={244}
+                       loading={"eager"}
                        alt="Moodboard" />
                 <Image className="rounded absolute top-[49%] left-[78%] -translate-y-1/2 -translate-x-1/2 select-none"
                        draggable="false"
                        src={"/moodboard/img_19.png"}
                        width={208} height={233}
+                       loading={"eager"}
                        alt="Moodboard" />
                 <Image className="rounded absolute top-[73%] left-[88%] -translate-y-1/2 -translate-x-1/2 select-none"
                        draggable="false"
                        src={"/moodboard/img_20.png"}
                        width={492} height={370}
+                       loading={"eager"}
                        alt="Moodboard" />
                 <Image className="rounded absolute top-[67%] left-[97%] -translate-y-1/2 -translate-x-1/2 select-none"
                        draggable="false"
                        src={"/moodboard/img_21.png"}
                        width={133} height={133}
+                       loading={"eager"}
                        alt="Moodboard" />
                 <Image className="rounded absolute top-[80%] left-[82.5%] -translate-y-1/2 -translate-x-1/2 select-none"
                        draggable="false"
                        src={"/moodboard/img_22.png"}
                        width={186} height={184}
+                       loading={"eager"}
                        alt="Moodboard" />
                 <Image className="rounded absolute top-[83%] left-[31.5%] -translate-y-1/2 -translate-x-1/2 select-none"
                        draggable="false"
                        src={"/moodboard/img_23.png"}
                        width={181} height={181}
+                       loading={"eager"}
                        alt="Moodboard" />
                 <Image className="z-10 rounded absolute top-[62%] left-[23%] -translate-y-1/2 -translate-x-1/2 select-none"
                        draggable="false"
                        src={"/moodboard/img_24.png"}
                        width={293} height={293}
+                       loading={"eager"}
                        alt="Moodboard" />
                 <Image className="rounded absolute top-[72.5%] left-[16%] -translate-y-1/2 -translate-x-1/2 select-none"
                        draggable="false"
                        src={"/moodboard/img_25.png"}
                        width={540} height={540}
+                       loading={"eager"}
                        alt="Moodboard" />
                 <Image className="rounded absolute top-[50%] left-[7%] -translate-y-1/2 -translate-x-1/2 select-none"
                        draggable="false"
                        src={"/moodboard/img_26.png"}
                        width={464.427} height={462.837}
+                       loading={"eager"}
                        alt="Moodboard" />
                 <Image className="rounded absolute top-[42.3%] left-[4.3%] -translate-y-1/2 -translate-x-1/2 select-none"
                        draggable="false"
                        src={"/moodboard/img_27.png"}
                        width={233.907} height={151.233}
+                       loading={"eager"}
                        alt="Moodboard" />
                 <Image className="rounded absolute top-[38%] left-[22%] -translate-y-1/2 -translate-x-1/2 select-none"
                        draggable="false"
                        src={"/moodboard/img_28.png"}
                        width={116.881} height={189.507}
+                       loading={"eager"}
                        alt="Moodboard" />
                 <Image className="rounded absolute top-[10%] left-[37%] -translate-y-1/2 -translate-x-1/2 select-none"
                        draggable="false"
                        src={"/moodboard/img_29.png"}
                        width={339.989} height={447.612}
+                       loading={"eager"}
                        alt="Moodboard" />
                 <Image className="rounded absolute top-[17%] left-[34%] -translate-y-1/2 -translate-x-1/2 select-none"
                        draggable="false"
                        src={"/moodboard/img_30.png"}
                        width={269.764} height={146.611}
+                       loading={"eager"}
                        alt="Moodboard" />
                 <Image className="rounded absolute top-[23%] left-[14%] -translate-y-1/2 -translate-x-1/2 select-none"
                        draggable="false"
                        src={"/moodboard/img_31.png"}
                        width={503.932} height={377.156}
+                       loading={"eager"}
                        alt="Moodboard" />
                 <Image className="rounded absolute top-[27.6%] left-[20%] -translate-y-1/2 -translate-x-1/2 select-none"
                        draggable="false"
                        src={"/moodboard/img_32.png"}
                        width={191} height={141}
+                       loading={"eager"}
                        alt="Moodboard" />
             </div>
         </div>
