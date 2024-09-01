@@ -2,7 +2,7 @@
 const nextConfig = {
     output: 'standalone',
     images: {
-        domains: ['picsum.photos'],
+        domains: ['picsum.photos', "localhost"],
     },
 };
 

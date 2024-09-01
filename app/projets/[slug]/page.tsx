@@ -2,9 +2,13 @@
 import ProjectPageDesktop from "@/components/projetPage/projetPageDesktop";
 import {useEffect, useState} from "react";
 import ProjectPageMobile from "@/components/projetPage/projetPageMobile";
+import {fetchProjetById, Projet} from "@/api/projet";
+import {useParams} from "next/navigation";
 
 export default function ProjectsPage() {
 	const [isMobile, setIsMobile] = useState(false);
+	const [projet, setProjet] = useState<Projet | null>(null);
+	const { slug } = useParams();
 
 	useEffect(() => {
 		const checkIfMobile = () => {
@@ -17,6 +21,14 @@ export default function ProjectsPage() {
 			}
 		};
 
+		if (slug && slug[0]) {
+			fetchProjetById(slug[0]).then((projet) => {
+				setProjet(projet);
+			}).catch((error) => {
+				console.error('Failed to fetch project:', error);
+			});
+		}
+
 		// Check on component mount
 		checkIfMobile();
 
@@ -28,9 +40,14 @@ export default function ProjectsPage() {
 			window.removeEventListener('resize', checkIfMobile);
 		};
 	}, []);
+
+	if (!projet) {
+		return <div>Chargement...</div>;
+	}
+
 	return (
 		<>
-			{isMobile ? <ProjectPageMobile /> : <ProjectPageDesktop />}
+			{isMobile ? <ProjectPageMobile /> : <ProjectPageDesktop projet={projet} />}
 		</>
 	)
 }

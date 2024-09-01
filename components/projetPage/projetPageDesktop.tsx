@@ -7,10 +7,18 @@ import Image from "next/image";
 import {useEffect} from "react";
 import Pigeon from "@/components/Pigeon";
 import CustomTitle from "@/components/CustomTitle";
+import {Projet} from "@/api/projet";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function ProjectPageDesktop() {
+type ProjetPageDesktopProps = {
+	projet: Projet;
+}
+
+export default function ProjectPageDesktop(props: ProjetPageDesktopProps) {
+	const {projet} = props;
+
+
 	useGSAP(() => {
 		let images = gsap.utils.toArray('.horizontalSection')
 
@@ -34,6 +42,7 @@ export default function ProjectPageDesktop() {
 				}
 			});
 		})
+		console.log(projet.nom)
 	}, [])
 
 	useEffect(() => {
@@ -49,12 +58,12 @@ export default function ProjectPageDesktop() {
 			<div className="horizontalSection h-screen">
 				<div className="flex justify-center items-center min-w-[80vw] py-20 px-36">
 					<Image className="absolute rotate-12 top-1/2 left-0 -translate-x-3 -translate-y-1/2 z-50"
-						   src={"https://picsum.photos/139/139"}
+						   src={projet.principale}
 						   alt={"aa"} width={139} height={139} loading={"eager"}/>
 					<div className="relative">
 						<CustomTitle
 							className="absolute top-0 translate-y-5/8 -translate-x-1/8 -rotate-[5deg] text-9xl ">
-							Gyraya & co
+							{projet.nom}
 						</CustomTitle>
 						<svg width="700" height="700" viewBox="0 0 893 893" preserveAspectRatio={"xMidYMid slice"}>
 							<defs>
@@ -67,7 +76,7 @@ export default function ProjectPageDesktop() {
 								   clipPath={`url(#clipPath)`} />
 						</svg>
 						<p className="absolute bottom-0 uppercase right-full w-44 text-right mr-10">
-							Lorem ipsum dolor sit amet raeddg
+							{projet.client} {projet.annee}
 						</p>
 					</div>
 				</div>
@@ -85,26 +94,22 @@ export default function ProjectPageDesktop() {
 					</div>
 					<div className="h-screen px-[200px] w-max bg-[#E7B11D] flex justify-center items-center">
 						<div className="max-w-[550px] flex flex-col gap-[100px]">
-							<h2 className="text-4xl normal-case">Lorem ipsum dolor sit amet raeddg</h2>
+							<h2 className="text-4xl normal-case">{projet.titreDescription}</h2>
 							<p className="text-xl normal-case">
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ornare risus in
-								accumsan
-								sollicitudin. Suspendisse gravida, metus quis tincidunt molestie, turpis urna
-								blandit
-								purus, at aliquam libero libero at libero.
+								{projet.description}
 							</p>
 						</div>
 					</div>
 				</div>
 				<div className="min-w-fit border-y border-[40px] border-[#0058BC] h-screen flex justify-center items-center">
-					<Image src={"/projectID/img_6.png"}
+					<Image src={projet.separateur1}
 						   width={1462}
 						   height={2880}
 						   className="relative w-[40vw]"
 						   alt={"aa"} loading={"eager"}/>
 				</div>
 				<div className="min-w-fit h-screen bg-[#84E3DF] flex justify-center items-center py-20 px-80">
-					<Image src={"/projectID/img_7.png"}
+					<Image src={projet.miseEnAvant}
 						   width={1362}
 						   height={1742}
 						   className="h-full w-auto"
@@ -120,32 +125,41 @@ export default function ProjectPageDesktop() {
 					<div className="flex gap-32 items-end">
 						<div className="relative">
 							<span
-								className="absolute left-1/2 -translate-x-1/2 -rotate-6 bg-[#EBF3FF] text-[#328FC2] px-8 rounded-3xl font-secondary font-bold text-[200px]">2</span>
+								className="absolute left-1/2 -translate-x-1/2 -rotate-6 bg-[#EBF3FF] text-[#328FC2] px-8 rounded-3xl font-secondary font-bold text-[200px]">
+								{projet.nombre1}
+							</span>
 							<span
 								className="invisible text-[#328FC2] px-8 font-secondary font-bold text-[200px]"></span>
-							<p className="mt-10 italic font-semibold w-36 text-center">Lorem ipsum dolor sit
-								amet.</p>
+							<p className="mt-10 italic font-semibold w-36 text-center">
+								{projet.label1}
+							</p>
 						</div>
 						<div className="relative mb-32">
 							<span
-								className="absolute left-1/2 -translate-x-1/2 rotate-6 bg-[#EBF3FF] text-[#328FC2] px-8 rounded-3xl font-secondary font-bold text-[200px]">5</span>
+								className="absolute left-1/2 -translate-x-1/2 rotate-6 bg-[#EBF3FF] text-[#328FC2] px-8 rounded-3xl font-secondary font-bold text-[200px]">
+								{projet.nombre2}
+							</span>
 							<span
 								className="invisible text-[#328FC2] px-8 font-secondary font-bold text-[200px]"></span>
-							<p className="mt-10 italic font-semibold w-36 text-center">produits vendus dans le
-								monde</p>
+							<p className="mt-10 italic font-semibold w-36 text-center">
+								{projet.label2}
+							</p>
 						</div>
 						<div className="relative mb-10">
 							<span
-								className="absolute left-1/2 -translate-x-1/2 -rotate-6 bg-[#EBF3FF] text-[#328FC2] px-8 rounded-3xl font-secondary font-bold text-[200px]">8</span>
+								className="absolute left-1/2 -translate-x-1/2 -rotate-6 bg-[#EBF3FF] text-[#328FC2] px-8 rounded-3xl font-secondary font-bold text-[200px]">
+								{projet.nombre3}
+							</span>
 							<span
 								className="invisible text-[#328FC2] px-8 font-secondary font-bold text-[200px]"></span>
-							<p className="mt-10 italic font-semibold w-36 text-center">Lorem ipsum dolor sit
-								amet.</p>
+							<p className="mt-10 italic font-semibold w-36 text-center">
+								{projet.label3}
+							</p>
 						</div>
 					</div>
 				</div>
 				<div className="relative min-w-[100vw] bg-white flex justify-center items-center">
-					<Image src={"/projectID/img.png"}
+					<Image src={projet.transition}
 						   width={872}
 						   height={610}
 						   className="w-[40vw]"
@@ -181,34 +195,37 @@ export default function ProjectPageDesktop() {
 
 			<div className="flex flex-col overflow-y-auto w-full overflow-hidden bg-white">
 				<div className="mx-auto w-full">
-					<Image src={"/projectID/img_1.png"}
-						   width={2798}
-						   height={1184}
-						   className="w-[80vw] mx-auto my-20"
-						   alt={"aa"} loading={"eager"}/>
-					<Image src={"/projectID/img_2.png"}
-						   width={2798}
-						   height={1924}
-						   className="w-[80vw] mx-auto my-20"
-						   alt={"aa"} loading={"eager"}/>
-					<Image src={"/projectID/img_4.png"}
+					{
+						projet.images.map((image, index) => (
+							<Image key={index} src={image}
+								   width={2798}
+								   height={1924}
+								   className="w-[80vw] mx-auto my-20"
+								   alt={"aa"} loading={"eager"}/>
+						))
+					}
+					<Image src={projet.separateur2}
 						   width={3840}
 						   height={2686}
 						   className="w-full my-20"
 						   alt={"aa"} loading={"eager"}/>
-					<Image src={"/projectID/img_5.png"}
-						   width={2720}
-						   height={1796}
-						   className="w-[80vw] mx-auto my-20"
-						   alt={"aa"} loading={"eager"}/>
+					{
+						projet.images2.map((image, index) => (
+							<Image key={index} src={image}
+								   width={2798}
+								   height={1924}
+								   className="w-[80vw] mx-auto my-20"
+								   alt={"aa"} loading={"eager"}/>
+						))
+					}
 					<div className="bg-[#E7B11D]">
-						<Image src={"/projectID/img_3.png"}
+						<Image src={projet.imageFin}
 							   className="w-full px-4 pt-10"
 							   width={3710}
 							   height={1818}
 							   alt={"aa"} loading={"eager"}/>
 						<p className="max-w-[630px] text-3xl text-white text-center mx-auto py-48">
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+							{projet.conclusion}
 						</p>
 						<div className="relative">
 							<svg width="1920" height="1566"

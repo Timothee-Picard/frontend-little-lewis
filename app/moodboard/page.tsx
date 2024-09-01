@@ -1,20 +1,23 @@
 "use client";
 
-import {useEffect, useRef, useState} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import { MouseEvent } from "react";
 import CustomTitle from "@/components/CustomTitle";
 import Image from "next/image";
 import {intervalsManager} from "next/dist/server/web/sandbox/resource-managers";
+import {fetchMoodboardImages, MoodboardImage} from "@/api/moodboard";
 
 export default function MoodBoardPage() {
     const containerDrag = useRef<HTMLDivElement>(null);
     const [position, setPosition] = useState({ top: '50%', left: '50%' });
     const [dragging, setDragging] = useState(false);
     const [startPosition, setStartPosition] = useState({ x: 0, y: 0 });
-    const [offset, setOffset] = useState({ x: 0, y: 0 });
+    const [offset, setOffset] = useState({ x: 1000, y: 600 });
     const [velocity, setVelocity] = useState({ x: 0, y: 0 });
 
     const intervalRef = useRef<NodeJS.Timeout | null>(null);
+
+    const [images, setImages] = useState<MoodboardImage[]>([]);
 
     function handleMouseDown(e: MouseEvent) {
         if (intervalRef) clearInterval(intervalRef.current!);
@@ -64,6 +67,14 @@ export default function MoodBoardPage() {
                 clearInterval(intervalRef.current);
             }
         };
+    }, []);
+
+    useEffect(() => {
+        if (images.length > 0) return;
+        fetchMoodboardImages().then(images => {
+            console.log(images);
+            setImages(images)
+        });
     }, []);
 
     useEffect(() => {
@@ -155,7 +166,32 @@ export default function MoodBoardPage() {
                 <CustomTitle className="z-10 -mt-40 text-[10rem] -rotate-[4.093deg] w-fit absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 select-none">
                     Moodboard
                 </CustomTitle>
-                <Image className="rounded absolute top-[40%] left-[39.6%] -translate-y-1/2 -translate-x-1/2 select-none"
+
+                {images.map((image, index) => {
+                    return (
+                        <Image
+                            key={index}
+                            className="rounded absolute select-none -translate-y-1/2 -translate-x-1/2"
+                            draggable="false"
+                            src={image.Visuel}
+                            width={parseFloat(image.Width)}
+                            height={parseFloat(image.Height)}
+                            style={
+                                {
+                                    top: `${image.Top}%`,
+                                    left: `${image.Left}%`,
+                                    transform: `rotate(${image.Rotation}deg)`,
+                                    transformOrigin: 'center',
+                                    scale: 0.6,
+                                }
+                            }
+                            loading="eager"
+                            alt="Moodboard"
+                        />
+                    );
+                })}
+
+                {/*<Image className="rounded absolute top-[40%] left-[39.6%] -translate-y-1/2 -translate-x-1/2 select-none"
                        draggable="false"
                        src={"/moodboard/img.png"}
                        width={459.592} height={459.592}
@@ -181,7 +217,7 @@ export default function MoodBoardPage() {
                        alt="Moodboard" />
                 <Image className="rounded absolute top-[50%] left-[61%] -translate-y-1/2 -translate-x-1/2 select-none"
                        draggable="false"
-                       src={"/moodboard/img_2.png"}
+                       src={"/moodboard/img_4.png"}
                        width={475.286} height={327.577}
                        loading={"eager"}
                        alt="Moodboard" />
@@ -352,7 +388,7 @@ export default function MoodBoardPage() {
                        src={"/moodboard/img_32.png"}
                        width={191} height={141}
                        loading={"eager"}
-                       alt="Moodboard" />
+                       alt="Moodboard" />*/}
             </div>
         </div>
     );

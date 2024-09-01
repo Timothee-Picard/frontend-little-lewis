@@ -43,7 +43,7 @@ export default function LoopBanner(Props: LoopBannerProps) {
 		wrapper.style.width = `${totalWidth * 4}px`;
 
 		// Create GSAP animation
-		gsap.to(wrapper, {
+		const animation = gsap.to(wrapper, {
 			x: `-=${totalWidth}`,
 			ease: "none",
 			duration: duration,
@@ -61,6 +61,10 @@ export default function LoopBanner(Props: LoopBannerProps) {
 				x: startOffset
 			}
 		});
+
+		return () => {
+			animation.kill();
+		};
 	}, [children]);
 
 	return (
