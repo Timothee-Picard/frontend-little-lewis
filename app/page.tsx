@@ -98,19 +98,8 @@ export default function HomePage() {
 		const video = document.querySelector('.videoAnim');
 		if(video instanceof HTMLVideoElement) video.play()
 
-		gsap.to(".parallaxTitle", {
-			top: 0,
-			ease: "none",
-			scrollTrigger: {
-				trigger: ".parallaxAnimation",
-				start: "bottom bottom+=300px",
-				end: "bottom bottom ",
-				scrub: true,
-			},
-		});
-
 		gsap.to(".parallaxSVG", {
-			top: 0,
+			top: '-15rem',
 			ease: "none",
 			scrollTrigger: {
 				trigger: ".parallaxAnimation",
@@ -178,7 +167,7 @@ export default function HomePage() {
 				<div className="mt-96 relative">
 					<div className="relative parallaxAnimation">
 						<CustomTitle
-							className="absolute top-40 z-10 text-[11vw] w-fit mx-auto -rotate-[4.093deg] parallaxTitle">
+							className="absolute -top-28 z-10 text-[11vw] w-fit mx-auto -rotate-[4.093deg] parallaxTitle">
 							Moodboard
 						</CustomTitle>
 						<div className="absolute top-0 parallaxBackground">
@@ -196,7 +185,7 @@ export default function HomePage() {
 
 							</div>
 						</div>
-						<svg className="absolute -top-28 z-20 w-full h-auto parallaxSVG"
+						<svg className="absolute top-0 z-20 w-full h-auto parallaxSVG"
 							 width="1920" height="1256" viewBox="0 0 1920 1256" fill="none"
 							 xmlns="http://www.w3.org/2000/svg">
 							<path fillRule="evenodd" clipRule="evenodd"
