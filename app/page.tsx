@@ -78,7 +78,7 @@ export default function HomePage() {
 		});
 
 
-		ScrollTrigger.create({
+		const navAnim = ScrollTrigger.create({
 			trigger: ".containerAnim",
 			start: "top+=800px top",
 			scrub: true,
@@ -108,6 +108,12 @@ export default function HomePage() {
 				scrub: true,
 			},
 		});
+
+		return () => {
+			navAnim.kill();
+			const mainNavigation = document.querySelector('.mainNavigation')
+			if(mainNavigation instanceof HTMLElement) mainNavigation.style.bottom = 'revert-layer';
+		}
     }, []);
     return (
 		<>
