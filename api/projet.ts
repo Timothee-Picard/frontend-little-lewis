@@ -1,3 +1,5 @@
+const url = process.env.NEXT_PUBLIC_API_URL;
+
 export type Projets = {
 	id: string;
 	nom: string;
@@ -33,7 +35,7 @@ export type Projet = {
 
 export async function fetchProjets(): Promise<Projets[]> {
 	try {
-		const response = await fetch('http://localhost:1337/api/projets?fields=Nom&populate=Presentation');
+		const response = await fetch(`${url}/api/projets?fields=Nom&populate=Presentation`);
 		if (!response.ok) {
 			throw new Error('Failed to fetch data from Strapi');
 		}
@@ -45,7 +47,7 @@ export async function fetchProjets(): Promise<Projets[]> {
 			const nom = projet.attributes.Nom;
 			const presentation = projet.attributes.Presentation?.data;
 
-			const imageUrl = presentation ? `http://localhost:1337${presentation.attributes.url}` : null;
+			const imageUrl = presentation ? `${url}${presentation.attributes.url}` : null;
 			return { id, nom, presentation: imageUrl };
 		});
 
@@ -83,7 +85,7 @@ export async function fetchProjetById(id: string): Promise<Projet | null> {
 			'&populate[Separateur2]=true' +
 			'&populate[Image_Fin]=true';
 
-		const response = await fetch(`http://localhost:1337/api/projets/${id}?${query}`);
+		const response = await fetch(`${url}/api/projets/${id}?${query}`);
 		if (!response.ok) {
 			throw new Error('Failed to fetch data from Strapi');
 		}
@@ -109,17 +111,17 @@ export async function fetchProjetById(id: string): Promise<Projet | null> {
 			label2: data.data.attributes.Label2 || '',
 			label3: data.data.attributes.Label3 || '',
 			images: data.data.attributes?.Images?.data?.length
-				? data.data.attributes.Images.data.map((image: any) => `http://localhost:1337${image.attributes.url}`)
+				? data.data.attributes.Images.data.map((image: any) => `${url}${image.attributes.url}`)
 				: [],
 			images2: data.data.attributes?.Images2?.data?.length
-				? data.data.attributes.Images2.data.map((image: any) => `http://localhost:1337${image.attributes.url}`)
+				? data.data.attributes.Images2.data.map((image: any) => `${url}${image.attributes.url}`)
 				: [],
-			imageFin: data.data.attributes?.Image_Fin?.data ? `http://localhost:1337${data.data.attributes.Image_Fin.data.attributes.url}` : '',
-			separateur1: data.data.attributes?.Separateur1?.data ? `http://localhost:1337${data.data.attributes.Separateur1.data.attributes.url}` : '',
-			separateur2: data.data.attributes?.Separateur2?.data ? `http://localhost:1337${data.data.attributes.Separateur2.data.attributes.url}` : '',
-			miseEnAvant: data.data.attributes?.Mise_en_avant?.data ? `http://localhost:1337${data.data.attributes.Mise_en_avant.data.attributes.url}` : '',
-			transition: data.data.attributes?.Transition?.data ? `http://localhost:1337${data.data.attributes.Transition.data.attributes.url}` : '',
-			principale: data.data.attributes?.Principale?.data ? `http://localhost:1337${data.data.attributes.Principale.data.attributes.url}` : '',
+			imageFin: data.data.attributes?.Image_Fin?.data ? `${url}${data.data.attributes.Image_Fin.data.attributes.url}` : '',
+			separateur1: data.data.attributes?.Separateur1?.data ? `${url}${data.data.attributes.Separateur1.data.attributes.url}` : '',
+			separateur2: data.data.attributes?.Separateur2?.data ? `${url}${data.data.attributes.Separateur2.data.attributes.url}` : '',
+			miseEnAvant: data.data.attributes?.Mise_en_avant?.data ? `${url}${data.data.attributes.Mise_en_avant.data.attributes.url}` : '',
+			transition: data.data.attributes?.Transition?.data ? `${url}${data.data.attributes.Transition.data.attributes.url}` : '',
+			principale: data.data.attributes?.Principale?.data ? `${url}${data.data.attributes.Principale.data.attributes.url}` : '',
 		};
 
 		return projet;

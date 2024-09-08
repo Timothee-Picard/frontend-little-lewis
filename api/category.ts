@@ -1,3 +1,5 @@
+const url = process.env.NEXT_PUBLIC_API_URL;
+
 export type Category = {
 	id: string;
 	nom: string;
@@ -5,7 +7,7 @@ export type Category = {
 
 export async function fetchCategories(): Promise<Category[]> {
 	try {
-		const response = await fetch('http://localhost:1337/api/categories?fields=Nom');
+		const response = await fetch(`${url}/api/categories?fields=Nom`);
 		if (!response.ok) throw new Error('Failed to fetch data from Strapi');
 		const data = await response.json();
 		return data.data.map((category: any) => {

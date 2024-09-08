@@ -1,3 +1,5 @@
+const url = process.env.NEXT_PUBLIC_API_URL;
+
 export type Contact = {
 	mail: string;
 	telephone: string;
@@ -21,7 +23,7 @@ export async function fetchContact(): Promise<Contact> {
 			'&fields[6]=Lien_Dribble' +
 			'&fields[7]=Lien_Tiktok';
 
-		const response = await fetch('http://localhost:1337/api/contact?' + query);
+		const response = await fetch(`${url}/api/contact?${query}`);
 		if (!response.ok) throw new Error('Failed to fetch data from Strapi');
 		const res = await response.json();
 		return {
