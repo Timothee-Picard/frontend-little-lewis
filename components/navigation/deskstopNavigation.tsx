@@ -55,7 +55,7 @@ export default function DesktopNavigation() {
                     <svg width="61" height="61" viewBox="0 0 61 61" fill="none" xmlns="http://www.w3.org/2000/svg"
                          onClick={() => setIsMenuOpen(!isMenuOpen)}>
                         <g filter="url(#filter0_b_70_167)">
-                            <rect width="61" height="61" rx="30.5" fill="#060606" fill-opacity="0.8"/>
+                            <rect width="61" height="61" rx="30.5" fill="#060606" fillOpacity="0.8"/>
                         </g>
                         <circle cx="30.5" cy="30.5" r="25.5" fill="#D88DFF"/>
                         <rect x="15" y="5" width="31" height="51" rx="15.5" fill="#D88DFF"/>
@@ -64,8 +64,8 @@ export default function DesktopNavigation() {
                         <circle cx="37.5" cy="30.5" r="2.5" fill="#424242"/>
                         <defs>
                             <filter id="filter0_b_70_167" x="-4" y="-4" width="69" height="69"
-                                    filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                                <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                                    filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+                                <feFlood floodOpacity="0" result="BackgroundImageFix"/>
                                 <feGaussianBlur in="BackgroundImageFix" stdDeviation="2"/>
                                 <feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_70_167"/>
                                 <feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_70_167"
