@@ -72,7 +72,6 @@ export default function MoodBoardPage() {
     useEffect(() => {
         if (images.length > 0) return;
         fetchMoodboardImages().then(images => {
-            console.log(images);
             setImages(images)
         });
     }, []);

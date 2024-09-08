@@ -42,7 +42,6 @@ export default function ProjectPageDesktop(props: ProjetPageDesktopProps) {
 				}
 			});
 		})
-		console.log(projet.nom)
 	}, [])
 
 	useEffect(() => {
