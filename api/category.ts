@@ -6,6 +6,8 @@ export type Category = {
 };
 
 export async function fetchCategories(): Promise<Category[]> {
+	console.log('test url', url);
+	console.log('test env', process.env.NEXT_PUBLIC_API_URL);
 	try {
 		const response = await fetch(`${url}/api/categories?fields=Nom`);
 		if (!response.ok) throw new Error('Failed to fetch data from Strapi');
