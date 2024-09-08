@@ -47,7 +47,7 @@ export async function fetchProjets(): Promise<Projets[]> {
 			const nom = projet.attributes.Nom;
 			const presentation = projet.attributes.Presentation?.data;
 
-			const imageUrl = presentation ? `${url}${presentation.attributes.url}` : null;
+			const imageUrl = presentation.attributes?.url || '';
 			return { id, nom, presentation: imageUrl };
 		});
 
@@ -116,12 +116,12 @@ export async function fetchProjetById(id: string): Promise<Projet | null> {
 			images2: data.data.attributes?.Images2?.data?.length
 				? data.data.attributes.Images2.data.map((image: any) => `${url}${image.attributes.url}`)
 				: [],
-			imageFin: data.data.attributes?.Image_Fin?.data ? `${url}${data.data.attributes.Image_Fin.data.attributes.url}` : '',
-			separateur1: data.data.attributes?.Separateur1?.data ? `${url}${data.data.attributes.Separateur1.data.attributes.url}` : '',
-			separateur2: data.data.attributes?.Separateur2?.data ? `${url}${data.data.attributes.Separateur2.data.attributes.url}` : '',
-			miseEnAvant: data.data.attributes?.Mise_en_avant?.data ? `${url}${data.data.attributes.Mise_en_avant.data.attributes.url}` : '',
-			transition: data.data.attributes?.Transition?.data ? `${url}${data.data.attributes.Transition.data.attributes.url}` : '',
-			principale: data.data.attributes?.Principale?.data ? `${url}${data.data.attributes.Principale.data.attributes.url}` : '',
+			imageFin: data.data.attributes?.Image_Fin?.data || '',
+			separateur1: data.data.attributes?.Separateur1?.data || '',
+			separateur2: data.data.attributes?.Separateur2?.data || '',
+			miseEnAvant: data.data.attributes?.Mise_en_avant?.data || '',
+			transition: data.data.attributes?.Transition?.data || '',
+			principale: data.data.attributes?.Principale?.data || ''
 		};
 
 		return projet;

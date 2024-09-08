@@ -25,7 +25,7 @@ export async function fetchMoodboardImages(): Promise<MoodboardImage[]> {
 				Top: moodboard.attributes.Top || '',
 				Left: moodboard.attributes.Left || '',
 				Rotation: moodboard.attributes.Rotation || '',
-				Visuel: moodboard.attributes.Visuel.data.attributes.url ? `${url}${moodboard.attributes.Visuel.data.attributes.url}` : '',
+				Visuel: moodboard.attributes.Visuel.data.attributes.url || '',
 				Width: moodboard.attributes.Visuel.data.attributes.width || '',
 				Height: moodboard.attributes.Visuel.data.attributes.height
 			};
