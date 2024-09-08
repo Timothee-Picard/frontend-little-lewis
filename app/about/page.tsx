@@ -32,7 +32,7 @@ export default function AboutPage() {
 	});
 
 	useEffect(() => {
-		gsap.to(".parallaxLogoAnim", {
+		/*gsap.to(".parallaxLogoAnim", {
 			marginBottom: "-11vw",
 			scrollTrigger: {
 				trigger: ".containerAnim",
@@ -40,10 +40,10 @@ export default function AboutPage() {
 				end: "+=200",
 				scrub: true,
 			},
-		});
+		});*/
 
 		gsap.to(".parallaxLeafAnim", {
-			marginTop: "0vw",
+			marginTop: "-5vw",
 			scrollTrigger: {
 				trigger: ".containerAnim",
 				start: "top top",
@@ -58,9 +58,9 @@ export default function AboutPage() {
 	}, []);
 
 	return (
-		<div className="bg-[#F0BD02] bg-full bg-no-repeat min-h-screen pt-56 containerAnim overflow-hidden">
-			<div className="flex flex-col lg:flex-row items-center w-full justify-center mt-[3vw]">
-				<div className="flex lg:flex-col flex-row gap-4 lg:w-1/3 items-end my-20">
+		<div className="bg-[#F0BD02] bg-full bg-no-repeat min-h-screen pt-36 containerAnim overflow-hidden">
+			<div className="flex flex-col lg:flex-row items-center w-full justify-center -mb-[8vw]">
+				<div className="flex lg:flex-col flex-row gap-4 lg:w-1/3 items-center">
 					<Link href={contact.lienInstagram} target="_blank">
 						<Image src={"/icoInstagram.png"} alt="Instagram" width={50} height={50} loading={"eager"}/>
 					</Link>
@@ -75,7 +75,7 @@ export default function AboutPage() {
 					</Link>
 				</div>
 				<div className="w-1/3 lg:self-end">
-					<Image className="w-[42vw] mx-auto -mb-[25vw] pl-[5vw] parallaxLogoAnim"
+					<Image className="min-w-[39vw] mx-auto pl-[2vw] parallaxLogoAnim"
 						   src={"/logoAbout.svg"} alt="Logo" width={200} height={200} loading={"eager"}/>
 				</div>
 				<div className="hidden lg:flex flex-col gap-4 w-1/3">
@@ -106,7 +106,7 @@ export default function AboutPage() {
 				</div>
 			</div>
 			<div>
-				<svg className="absolute w-full h-auto parallaxLeafAnim -mt-[5vw]"
+				<svg className="absolute w-full h-auto parallaxLeafAnim mt-[0vw]"
 					 width="1920" height="1011" viewBox="0 0 1920 1011" fill="none" xmlns="http://www.w3.org/2000/svg">
 					<path fillRule="evenodd" clipRule="evenodd"
 						  d="M541.671 770.259C535.678 840.525 630.928 868.615 684.835 884.514C685.983 884.852 687.112 885.185 688.221 885.513C704.51 890.328 720.724 895.344 736.933 900.358C792.467 917.537 847.931 934.693 906.05 943.701C924.699 946.585 943.428 949.44 962.103 952.135C966.128 952.718 970.201 953.399 974.3 954.086C984.686 955.824 995.239 957.59 1005.6 957.847C1012.69 958.028 1017.74 950.705 1017.6 944.262C1015.31 860.672 1015.96 777.103 1016.61 693.448C1016.65 688.007 1016.7 682.566 1016.74 677.124C1016.82 665.912 1017.06 654.637 1017.29 643.334C1017.93 612.45 1018.57 581.351 1016.25 550.74C1013.73 517.17 998.289 477.944 962.169 468.258C941.097 462.582 926.668 472.766 916.528 488.502C916.365 466.518 914.597 444.035 912.085 422.352C910.221 406.3 909.22 390.116 908.22 373.932C906.352 343.709 904.484 313.487 896.989 284.126C889.556 254.858 877.282 220.673 852.637 201.369C840.071 191.531 824.072 186.656 808.312 190.353C788.975 194.916 776.787 212.169 768.855 229.224C760.083 248.072 753.506 267.505 748.437 287.315C739.951 229.181 724.579 172.371 691.252 123.087C672.568 95.4279 641.809 58.5731 603.884 66.9928C563.672 75.8368 559.217 125.859 557.145 159.2C556.414 171.029 556.288 182.878 556.749 194.701C527.085 134.597 491.476 77.6653 441.196 32.6937C423.509 16.8612 402.88 0.596105 377.926 0.868348C354.4 1.10103 335.142 17.4454 331.714 40.7956C328.285 64.1459 336.488 86.2083 344.276 107.061C353.913 132.777 366.183 157.5 379.926 181.266C399.124 214.412 421.257 245.662 443.487 276.853C426.09 266.152 408.162 256.321 389.766 247.475C352.953 229.734 311.389 214.164 270.014 222.506C251.398 226.281 232.072 235.077 234.185 257.247C235.917 275.942 249.976 295.904 260.781 310.584C286.73 346.025 321.663 373.515 356.796 399.224C368.33 407.651 380.027 415.859 391.877 423.841C386.293 423.296 380.639 422.958 374.904 422.844C357.841 422.481 338.643 424.563 324.397 434.771C307.554 446.861 301.764 468.318 307.089 488.033C316.698 523.217 350.792 547.688 380.475 568.993C385.486 572.59 390.371 576.096 394.991 579.548C437.481 611.205 482.624 638.255 528.915 663.921C538.786 669.379 548.747 674.725 558.716 680.075C576.375 689.551 594.058 699.04 611.307 709.194C612.223 709.735 613.133 710.284 614.04 710.84C606.31 711.292 598.628 712.601 591.065 715.059C567.068 722.845 546.485 741.627 541.89 767.091C541.692 768.2 541.624 769.258 541.671 770.259Z"
@@ -237,7 +237,7 @@ export default function AboutPage() {
 			</div>
 			<div className="bg-[#F0BD02] overflow-x-clip">
 				<div className={"triangle -rotate-[3.329deg]"}>
-					<LoopBanner>
+			{/*		<LoopBanner>
 						<span>tulipes</span>
 						<span>y.u.d.a.t.</span>
 						<span>TAG HEUER</span>
@@ -245,7 +245,7 @@ export default function AboutPage() {
 						<span>skullcandy</span>
 						<span>pullin</span>
 						<span>giraya</span>
-					</LoopBanner>
+					</LoopBanner>*/}
 				</div>
 				<main className="mt-[7vw]">
 					<svg className="mx-auto my-32"
