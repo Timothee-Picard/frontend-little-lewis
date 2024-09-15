@@ -99,11 +99,11 @@ export default function HomePage() {
 		if(video instanceof HTMLVideoElement) video.play()
 
 		gsap.to(".parallaxSVG", {
-			top: '-15rem',
+			top: '-10vw',
 			ease: "none",
 			scrollTrigger: {
 				trigger: ".parallaxAnimation",
-				start: "bottom bottom+=300px",
+				start: "bottom bottom+=200vh",
 				end: "bottom bottom ",
 				scrub: true,
 			},
@@ -142,9 +142,9 @@ export default function HomePage() {
 				</div>
 			</section>
 			<AnimatedBackground className={"separatorAnim w-full h-auto relative z-10 top-0"}/>
-			<div className="relative -mt-[80vh] z-10 bg-white overflow-hidden">
-				<svg width="216" height="176"
-					 className="mx-auto"
+			<div className="relative -mt-[300px] z-10 bg-white overflow-hidden">
+				<svg width="30vw" height="auto"
+					 className="mx-auto max-w-[216px]"
 					 viewBox="0 0 216 176" fill="none" xmlns="http://www.w3.org/2000/svg">
 					<g clipPath="url(#clip0_530_17119)">
 						<path
@@ -169,11 +169,11 @@ export default function HomePage() {
 						</clipPath>
 					</defs>
 				</svg>
-				<GroupProject className="w-[60vw] max-w-full mx-auto px-4 mt-36" />
-				<div className="mt-96 relative">
+				<GroupProject className="w-[60vw] max-w-full mx-auto px-4 mt-[10vw]" />
+				<div className="mt-[20vw] relative">
 					<div className="relative parallaxAnimation">
 						<CustomTitle
-							className="absolute -top-28 z-10 text-[11vw] w-fit mx-auto -rotate-[4.093deg] parallaxTitle">
+							className="absolute -top-[4vw] z-10 text-[11vw] w-fit mx-auto -rotate-[4.093deg] parallaxTitle">
 							Moodboard
 						</CustomTitle>
 						<div className="absolute top-0 parallaxBackground">
@@ -205,15 +205,7 @@ export default function HomePage() {
 					</div>
 					<div className="relative bg-[#361B8B] z-50 py-24">
 						<div className={"-rotate-[3.329deg] "}>
-							<LoopBanner>
-								<span>tulipes</span>
-								<span>y.u.d.a.t.</span>
-								<span>TAG HEUER</span>
-								<span>BIEN’ici</span>
-								<span>skullcandy</span>
-								<span>pullin</span>
-								<span>giraya</span>
-							</LoopBanner>
+
 						</div>
 					</div>
 					<div className="relative bg-[#361B8B] overflow-hidden z-30">

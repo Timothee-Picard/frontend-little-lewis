@@ -116,12 +116,12 @@ export async function fetchProjetById(id: string): Promise<Projet | null> {
 			images2: data.data.attributes?.Images2?.data?.length
 				? data.data.attributes.Images2.data.map((image: any) => `${url}${image.attributes.url}`)
 				: [],
-			imageFin: data.data.attributes?.Image_Fin?.data || '',
-			separateur1: data.data.attributes?.Separateur1?.data || '',
-			separateur2: data.data.attributes?.Separateur2?.data || '',
-			miseEnAvant: data.data.attributes?.Mise_en_avant?.data || '',
-			transition: data.data.attributes?.Transition?.data || '',
-			principale: data.data.attributes?.Principale?.data || ''
+			imageFin: data.data.attributes?.Image_Fin?.data?.attributes.url || 'https://placehold.co/600x400',
+			separateur1: data.data.attributes?.Separateur1?.data?.attributes.url || 'https://placehold.co/600x400',
+			separateur2: data.data.attributes?.Separateur2?.data?.attributes.url || 'https://placehold.co/600x400',
+			miseEnAvant: data.data.attributes?.Mise_en_avant?.data?.attributes.url || 'https://placehold.co/600x400',
+			transition: data.data.attributes?.Transition?.data?.attributes.url || 'https://placehold.co/600x400',
+			principale: data.data.attributes?.Principale?.data.attributes.url || 'https://placehold.co/600x400'
 		};
 
 		return projet;

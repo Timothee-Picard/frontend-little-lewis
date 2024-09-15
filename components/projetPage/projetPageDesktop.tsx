@@ -57,24 +57,25 @@ export default function ProjectPageDesktop(props: ProjetPageDesktopProps) {
 			<div className="horizontalSection h-screen">
 				<div className="flex justify-center items-center min-w-[80vw] py-20 px-36">
 					<Image className="absolute rotate-12 top-1/2 left-0 -translate-x-3 -translate-y-1/2 z-50"
-						   src={projet.principale}
+						   src="https://placehold.co/600x400"
 						   alt={"aa"} width={139} height={139} loading={"eager"}/>
 					<div className="relative">
 						<CustomTitle
 							className="absolute top-0 translate-y-5/8 -translate-x-1/8 -rotate-[5deg] text-9xl ">
 							{projet.nom}
 						</CustomTitle>
-						<svg width="700" height="700" viewBox="0 0 893 893" preserveAspectRatio={"xMidYMid slice"}>
+						<svg className="max-w-[700px] max-h-[700px]"
+							width="45vw" height="45vw" viewBox="0 0 893 893" preserveAspectRatio={"xMidYMid slice"}>
 							<defs>
 								<clipPath id="clipPath">
 									<path fill="#328FC2"
 										  d="M863.531 -1.28815e-06C872.132 -9.12172e-07 879.194 6.80023 879.519 15.3954L893 371.879L884.797 626.323L884.797 844.164C884.797 852.428 878.503 859.332 870.275 860.095L673.852 878.321L450.016 878.321L227.352 893L20.5979 879.297C12.2746 878.746 5.77163 871.892 5.65749 863.551L0.000102393 450.17L5.64612 32.9095C5.76453 24.1582 12.8925 17.126 21.6447 17.126L227.352 17.126L450.016 -1.93635e-05L863.531 -1.28815e-06Z"/>
 								</clipPath>
 							</defs>
-							<image href="/projectID/img_8.png" width="100%" height="100%" x="0" y="0"
+							<image href={projet.principale} width="100%" height="100%" x="0" y="0"
 								   clipPath={`url(#clipPath)`} />
 						</svg>
-						<p className="absolute bottom-0 uppercase right-full w-44 text-right mr-10">
+						<p className="absolute bottom-0 uppercase right-full w-32 text-right mr-10">
 							{projet.client} {projet.annee}
 						</p>
 					</div>
@@ -88,7 +89,7 @@ export default function ProjectPageDesktop(props: ProjetPageDesktopProps) {
 								  fill="#E7B11D"/>
 						</svg>
 						<Image className="absolute -rotate-[16deg] top-[15%] left-0 -translate-x-3 z-50"
-							   src={"https://picsum.photos/160/100"}
+							   src={"https://placehold.co/600x400"}
 							   alt={"aa"} width={160} height={100} loading={"eager"}/>
 					</div>
 					<div className="h-screen px-[200px] w-max bg-[#E7B11D] flex justify-center items-center">
@@ -257,7 +258,7 @@ export default function ProjectPageDesktop(props: ProjetPageDesktopProps) {
 											  d="M363.97 439.118L363.969 439.166L363.969 439.214L363.969 588.507C363.969 593.927 360.021 598.54 354.665 599.375L281.458 610.798C280.897 610.885 280.33 610.929 279.762 610.929L187.661 610.929L187.385 610.929L187.11 610.96L96.0248 621.058C95.2171 621.147 94.402 621.147 93.5943 621.057L17.1091 612.533C11.5739 611.916 7.37321 607.259 7.3279 601.69L4.99996 315.725L5.0003 315.685L7.31576 27.9212C7.36435 21.8808 12.2748 17.0097 18.3154 17.0097L94.8081 17.0097L95.1301 17.0097L95.4494 16.9684L187.983 4.99999L350.881 5C356.86 5 361.744 9.77545 361.879 15.7527L367.389 260.792L363.97 439.118Z"/>
 									</clipPath>
 								</defs>
-								<image href="https://picsum.photos/2000/3000" width="120%" height="120%" x="-10%"
+								<image href="https://placehold.co/600x400" width="120%" height="120%" x="-10%"
 									   y="-10%"
 									   clipPath={`url(#projectClipPath-1})`}/>
 							</svg>
@@ -270,7 +271,7 @@ export default function ProjectPageDesktop(props: ProjetPageDesktopProps) {
 											  d="M363.97 439.118L363.969 439.166L363.969 439.214L363.969 588.507C363.969 593.927 360.021 598.54 354.665 599.375L281.458 610.798C280.897 610.885 280.33 610.929 279.762 610.929L187.661 610.929L187.385 610.929L187.11 610.96L96.0248 621.058C95.2171 621.147 94.402 621.147 93.5943 621.057L17.1091 612.533C11.5739 611.916 7.37321 607.259 7.3279 601.69L4.99996 315.725L5.0003 315.685L7.31576 27.9212C7.36435 21.8808 12.2748 17.0097 18.3154 17.0097L94.8081 17.0097L95.1301 17.0097L95.4494 16.9684L187.983 4.99999L350.881 5C356.86 5 361.744 9.77545 361.879 15.7527L367.389 260.792L363.97 439.118Z"/>
 									</clipPath>
 								</defs>
-								<image href="https://picsum.photos/2000/3000" width="120%" height="120%" x="-10%"
+								<image href="https://placehold.co/600x400" width="120%" height="120%" x="-10%"
 									   y="-10%"
 									   clipPath={`url(#projectClipPath-2})`}/>
 							</svg>
@@ -282,7 +283,7 @@ export default function ProjectPageDesktop(props: ProjetPageDesktopProps) {
 											  d="M363.97 439.118L363.969 439.166L363.969 439.214L363.969 588.507C363.969 593.927 360.021 598.54 354.665 599.375L281.458 610.798C280.897 610.885 280.33 610.929 279.762 610.929L187.661 610.929L187.385 610.929L187.11 610.96L96.0248 621.058C95.2171 621.147 94.402 621.147 93.5943 621.057L17.1091 612.533C11.5739 611.916 7.37321 607.259 7.3279 601.69L4.99996 315.725L5.0003 315.685L7.31576 27.9212C7.36435 21.8808 12.2748 17.0097 18.3154 17.0097L94.8081 17.0097L95.1301 17.0097L95.4494 16.9684L187.983 4.99999L350.881 5C356.86 5 361.744 9.77545 361.879 15.7527L367.389 260.792L363.97 439.118Z"/>
 									</clipPath>
 								</defs>
-								<image href="https://picsum.photos/2000/3000" width="120%" height="120%" x="-10%"
+								<image href="https://placehold.co/600x400" width="120%" height="120%" x="-10%"
 									   y="-10%"
 									   clipPath={`url(#projectClipPath-3})`}/>
 							</svg>

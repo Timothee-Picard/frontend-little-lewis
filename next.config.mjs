@@ -2,7 +2,8 @@
 const nextConfig = {
     output: 'standalone',
     images: {
-        domains: ['res.cloudinary.com', 'picsum.photos'],
+        dangerouslyAllowSVG: true,
+        domains: ['res.cloudinary.com', 'placehold.co'],
     },
 };
 
