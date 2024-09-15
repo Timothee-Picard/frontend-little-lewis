@@ -181,7 +181,7 @@ export default function MoodBoardPage() {
                                     left: `${image.Left}%`,
                                     transform: `rotate(${image.Rotation}deg)`,
                                     transformOrigin: 'center',
-                                    scale: 0.6,
+                                    zIndex: image.Zindex,
                                 }
                             }
                             loading="eager"

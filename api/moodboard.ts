@@ -7,6 +7,7 @@ export type MoodboardImage = {
 	Rotation: string;
 	Width: string;
 	Height: string;
+	Zindex: number;
 };
 
 export async function fetchMoodboardImages(): Promise<MoodboardImage[]> {
@@ -27,7 +28,8 @@ export async function fetchMoodboardImages(): Promise<MoodboardImage[]> {
 				Rotation: moodboard.attributes.Rotation || '',
 				Visuel: moodboard.attributes.Visuel.data.attributes.url || '',
 				Width: moodboard.attributes.Visuel.data.attributes.width || '',
-				Height: moodboard.attributes.Visuel.data.attributes.height
+				Height: moodboard.attributes.Visuel.data.attributes.height || '',
+				Zindex: moodboard.attributes.Zindex || 0,
 			};
 		});
 	} catch (error) {

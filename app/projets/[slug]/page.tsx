@@ -12,7 +12,7 @@ export default function ProjectsPage() {
 
 	useEffect(() => {
 		const checkIfMobile = () => {
-			if (window.innerWidth <= 768) {
+			if (window.innerWidth <= 1024) {
 				console.log('Vous êtes sur un appareil mobile.');
 				setIsMobile(true);
 			} else {
