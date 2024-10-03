@@ -7,8 +7,8 @@ import Loading from "@/components/Loading";
 import { Anton } from 'next/font/google'
 
 export const metadata: Metadata = {
-    title: "Little Lewis",
-    description: "Artist and designer",
+  title: "Little Lewis",
+  description: "Artist and designer",
 };
 
 const anton = Anton({
@@ -72,19 +72,13 @@ type RootLayoutProps = {
 }
 export default function RootLayout(RootLayoutProps: RootLayoutProps) {
     const { children } = RootLayoutProps;
-    return (
-        <html lang="fr" className={`${builtTitling.variable} ${anton.className}`}>
-        <body className={"min-h-screen flex flex-col justify-center gap-10"}>
-        <h1 className={"text-9xl text-center"}>
-            Little Lewis
-        </h1>
-        <h2 className={"text-4xl text-center"}>
-            Artist and designer
-        </h2>
-        <h3 className={"text-2xl text-center"}>
-            Website in comming
-        </h3>
-        </body>
-        </html>
-    );
+  return (
+    <html lang="fr" className={`${builtTitling.variable} ${anton.className}`}>
+      <body>
+      <DesktopNavigation />
+      <Loading />
+      {children}
+      </body>
+    </html>
+  );
 }
