@@ -43,6 +43,7 @@ export async function fetchProjets(): Promise<Projets[]> {
 		const data = await response.json();
 
 		const projets: Projets[] = data.data.map((projet: any) => {
+			console.log(projet);
 			const id = projet.id.toString();
 			const nom = projet.attributes.Nom;
 			const presentation = projet.attributes.Presentation?.data;
@@ -58,7 +59,7 @@ export async function fetchProjets(): Promise<Projets[]> {
 	}
 }
 
-export async function fetchProjetById(id: string): Promise<Projet | null> {
+export async function fetchProjetById(id: string | string[]): Promise<Projet | null> {
 	try {
 		const query =
 			'fields[0]=Nom' +

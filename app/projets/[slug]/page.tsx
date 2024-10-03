@@ -11,6 +11,7 @@ export default function ProjectsPage() {
 	const { slug } = useParams();
 
 	useEffect(() => {
+		console.log(slug)
 		const checkIfMobile = () => {
 			if (window.innerWidth <= 1024) {
 				console.log('Vous êtes sur un appareil mobile.');
@@ -22,7 +23,7 @@ export default function ProjectsPage() {
 		};
 
 		if (slug && slug[0]) {
-			fetchProjetById(slug[0]).then((projet) => {
+			fetchProjetById(slug).then((projet) => {
 				setProjet(projet);
 			}).catch((error) => {
 				console.error('Failed to fetch project:', error);
@@ -47,7 +48,7 @@ export default function ProjectsPage() {
 
 	return (
 		<>
-			{isMobile ? <ProjectPageMobile /> : <ProjectPageDesktop projet={projet} />}
+			{isMobile ? <ProjectPageMobile projet={projet} /> : <ProjectPageDesktop projet={projet} />}
 		</>
 	)
 }

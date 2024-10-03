@@ -8,8 +8,29 @@ export default function Loading() {
 	const [imagesLoaded, setImagesLoaded] = useState(false);
 	const pathname = usePathname();
 
+	const [timer, setTimer] = useState<any>(null);
+
+	function test() {
+		setCount(0);
+		const duration = 4000;
+		const interval = 50;
+		const steps = duration / interval;
+		const increment = 100 / steps;
+		setTimer(setInterval(() => {
+			setCount(prevCount => {
+				const newCount = prevCount + increment;
+				if (newCount == 100) {
+					setLoading(false);
+					clearInterval(timer);
+					return 100;
+				}
+				return newCount;
+			});
+		}, interval))
+	}
+
 	useEffect(() => {
-		const allImages = Array.from(document.images);
+		/*const allImages = Array.from(document.images);
 		const allVideos = Array.from(document.getElementsByTagName('video'));
 
 		const checkAllMediaLoaded = () => {
@@ -32,34 +53,17 @@ export default function Loading() {
 		return () => {
 			allImages.forEach(img => img.removeEventListener('load', handleLoad));
 			allVideos.forEach(video => video.removeEventListener('loadeddata', handleLoadedData));
-		};
+		};*/
+		setLoading(true);
+		test();
+		console.log('pathname', pathname);
+
+		return () => {
+			clearInterval(timer);
+		}
 	}, [pathname]);
 
-	useEffect(() => {
-		// Durée totale du compte à rebours en millisecondes
-		const duration = 2000; // 2 secondes
-		// Intervalle de mise à jour en millisecondes
-		const interval = 50; // Met à jour toutes les 50 millisecondes
-		const steps = duration / interval;
-		const increment = 100 / steps;
-
-		const timer = setInterval(() => {
-			setCount(prevCount => {
-				const newCount = prevCount + increment;
-				if (newCount >= 100) {
-					clearInterval(timer); // Arrête le timer lorsque le compteur atteint 100
-					setLoading(false);
-					return 100;
-				}
-				return newCount;
-			});
-		}, interval);
-
-		// Nettoyage de l'intervalle lors du démontage du composant
-		return () => clearInterval(timer);
-	}, []);
-
-	if (!loading && imagesLoaded) {
+	if (!loading) {
 		return null;
 	}
 
