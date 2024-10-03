@@ -6,10 +6,10 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function ScrollingText() {
-	const paragraphsRef = useRef<(HTMLParagraphElement | null)[]>([]);
+	const paragraphsRef = useRef<any>([]);
 
 	useEffect(() => {
-		paragraphsRef.current.forEach((paragraph) => {
+		paragraphsRef.current.forEach((paragraph: any) => {
 			if (!paragraph) return;
 
 			ScrollTrigger.create({
@@ -27,7 +27,7 @@ export default function ScrollingText() {
 	return (
 		<div className="flex flex-col gap-20 mb-96 mx-10">
 			<p
-				ref={(el) => (paragraphsRef.current[2] = el)}
+				ref={(el) : any => (paragraphsRef.current[2] = el)}
 				className="whitespace-pre-line max-w-[600px] mx-auto text-gray-300"
 			>
 				<b className="font-bold">Né à Paris</b>
@@ -38,13 +38,13 @@ export default function ScrollingText() {
 				{` (le design scandinave, le hip hop, l’art brut, sans oublier la pizza, étant fils de piazzaiolo).`}
 			</p>
 			<p
-				ref={(el) => (paragraphsRef.current[3] = el)}
+				ref={(el) : any => (paragraphsRef.current[3] = el)}
 				className="whitespace-pre-line max-w-[600px] mx-auto text-gray-300"
 			>
 				{`Après des études en communication digitale, il devient directeur artistique et alterne entre freelance et poste en agence de pub. En 2016, il se met à peindre, un hobby qui devient une passion et qui va prendre une place importante grâce aux commandes de particuliers et de marques.`}
 			</p>
 			<p
-				ref={(el) => (paragraphsRef.current[4] = el)}
+				ref={(el) : any => (paragraphsRef.current[4] = el)}
 				className="whitespace-pre-line max-w-[600px] mx-auto text-gray-300"
 			>
 				{`Son style, qui s’inscrit dans le courant de la figuration libre, est spontané et accessible. Il donne naissance à Pablo, le pigeon que l’on voit dans ses peintures, qui exprime les contradictions de la société moderne d’une manière simple.`}
